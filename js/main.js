@@ -1021,7 +1021,7 @@
       '<div class="unlock-opt"><h5>🛒 扫码购买 · 付完自动解锁</h5>' +
       '<p>微信扫码进「人人复盘」小程序付款，付完本页自动解锁，无需手输。</p>' +
       '<button class="btn gold block" id="ul-buy-this">🛒 只买这一关 ¥2.99</button>' +
-      '<button class="btn gold block" id="ul-buy-all" style="margin-top:8px">🛒 全部解锁 ¥199 · 更划算（含后续更新）</button></div>' +
+      '<button class="btn gold block" id="ul-buy-all" style="margin-top:8px">🛒 全部解锁 ¥99 · 更划算（含后续更新）</button></div>' +
       '<div class="unlock-opt"><h5>🔑 已在小程序买过？输会员码</h5>' +
       '<div class="wx-badge">小程序购买后获得会员码，或加微信 <b>sparkle2011</b><button class="wx-copy" type="button" data-copy="sparkle2011">复制</button> 获取</div>' +
       '<input class="code-input" id="ul-code" placeholder="MS-XXXX-XXXX" autocapitalize="characters">' +
@@ -1169,7 +1169,7 @@
     var token = MR.store.getWebToken();
     var scene = caseObj ? (token + '~' + caseObj.id).slice(0, 32) : token;   // scene≤32字符；带 caseId 让小程序定位买哪一关
     var qrUrl = 'https://master-ai.cn/wgame/pay/wxacode?scene=' + encodeURIComponent(scene) + '&page=' + encodeURIComponent('pages/lobby/lobby');
-    var what = caseObj ? ('购买《' + H().esc(caseObj.chip || caseObj.title) + '》') : '解锁全部剧本（¥199）';
+    var what = caseObj ? ('购买《' + H().esc(caseObj.chip || caseObj.title) + '》') : '解锁全部剧本（¥99）';
     var m = H().modal('<h3>🛒 扫码购买 · 自动解锁</h3>' +
       '<p style="font-size:12.5px;color:#8b949e">微信扫下方小程序码 → 在「人人复盘」小程序付款 → <b style="color:#3fb950">本页自动解锁</b>，无需手输。手机上可长按图片识别。</p>' +
       '<img src="' + qrUrl + '" style="width:200px;height:200px;display:block;margin:14px auto;border-radius:12px;background:#fff;padding:8px" alt="小程序码">' +
