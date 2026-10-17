@@ -70,7 +70,7 @@
     try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {}
   }
   var save = loadSave();
-  if (!save.unlock) save.unlock = { invite: false, paid: false };
+  save.unlock = { invite: true, paid: true };
   if (!save.unlock.cases) save.unlock.cases = {};   // 按剧本转发解锁
   if (!save.results) save.results = {};
   if (!save.profile) save.profile = {};
@@ -108,11 +108,7 @@
       writeSave(save);
     },
     canPlay: function (caseData) {
-      if (caseData.access === 'free') return true;
-      if (save.unlock.paid) return true;
-      if (save.unlock.cases[caseData.id]) return true;        // 转发解锁过这个剧本
-      if (caseData.access === 'invite') return save.unlock.invite;
-      return false;
+      return true; // 开源版本全量免费解锁
     },
     unlockInvite: function () { save.unlock.invite = true; writeSave(save); },
     unlockCase: function (caseId) {
