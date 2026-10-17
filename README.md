@@ -3,6 +3,11 @@
 > **沉浸式历史行情与投资决策复盘仿真引擎**  
 > 带着当时的信息、当时的资金、当时的心理压力，在真实历史行情与事件轴里亲历每一次重大市场抉择。
 
+[![GitHub Pages](https://img.shields.io/badge/Live_Demo-在线直接试玩-success?style=flat-square)](https://liangwz2012.github.io/market-replay/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+
+👉 **[点击直接在浏览器在线体验](https://liangwz2012.github.io/market-replay/)**
+
 ---
 
 ## 🌟 项目简介
