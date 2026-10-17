@@ -1,0 +1,504 @@
+{
+  "id": "buffett_1988_ko",
+  "title": "可口可乐 · 巴菲特 1988",
+  "posterTitle": "股神（巴老）",
+  "posterQuote": "",
+  "era": "1988 · 纽约证交所",
+  "access": "invite",
+  "priceFiles": [
+    "prices/ko.json"
+  ],
+  "role": {
+    "name": "伯克希尔哈撒韦基金经理",
+    "aum": 500000000,
+    "desc": ""
+  },
+  "market": {
+    "type": "us",
+    "tplus": 0,
+    "lot": 1,
+    "feeRate": 0.0008,
+    "allowShort": true,
+    "benchmark": "ko",
+    "dividendYield": 0.02,
+    "margin": {
+      "enabled": true,
+      "maxLeverage": 2,
+      "annualRate": 0.085,
+      "forceLine": 1.3
+    }
+  },
+  "instruments": [
+    {
+      "id": "ko",
+      "name": "可口可乐",
+      "kind": "stock",
+      "allowShort": true
+    }
+  ],
+  "opening": {
+    "dateLabel": "1988 · 纽约证交所",
+    "title": "可口可乐",
+    "mood": "",
+    "lines": [
+      "1988 年春。距离 1987 黑色星期一已 5 个月。可口可乐 KO 股价 $2.40 (split-adj), PE",
+      "巴菲特刚从纽约飞回奥马哈办公室. 桌上摆着一沓 KO 过去 10 年财报. ROE 31%, 毛利 60%+, 现金流连",
+      "我喜欢的不是数字, 是这个生意: 一杯可口可乐成本不到 1 美分, 售价 50 美分。糖浆配方 100 年没人破解。全球",
+      "你说\"增长见顶\", 我看到的是: KO 国际业务在过去 5 年从 30% 营收涨到 55%. 中国/印度/拉美的可乐渗透",
+      "巴菲特让秘书翻出 1981 年 Roberto Goizueta 上任后的 KO 报告。Goizueta 砍掉了百货商店",
+      "Goizueta 给我做了一件最重要的事: 他证明了管理层有\"砍业务\"的勇气. 这种 CEO, 你愿意把 30 亿美元交"
+    ],
+    "cta": "进入 1988"
+  },
+  "fastBrief": [
+    {
+      "icon": "📊",
+      "text": "1988 年春。距离 1987 黑色星期一已 5 个月。可口可乐 KO 股价 $"
+    },
+    {
+      "icon": "🌍",
+      "text": "巴菲特刚从纽约飞回奥马哈办公室. 桌上摆着一沓 KO 过去 10 年财报. RO"
+    },
+    {
+      "icon": "🏭",
+      "text": "巴菲特让秘书翻出 1981 年 Roberto Goizueta 上任后的 KO"
+    },
+    {
+      "icon": "💡",
+      "text": "1988 年中。KO 三季度营收数据出来: 总营收 +6%, 弱于市场预期 +9"
+    },
+    {
+      "icon": "⚡",
+      "text": "第二天巴菲特给 CEO Goizueta 打电话, 确认拉美业务的实物销量、新产"
+    }
+  ],
+  "profile": {
+    "tabTitle": "标的研究",
+    "intro": "",
+    "narrative": "",
+    "bull": [],
+    "bear": [],
+    "metrics": [],
+    "valuationPctile": "",
+    "metricsNote": ""
+  },
+  "research": [],
+  "acts": [
+    {
+      "id": "act1",
+      "title": "布局入场",
+      "dateFrom": "1988-04-01",
+      "dateTo": "1988-04-01",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1988-04-01",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1988 年春。距离 1987 黑色星期一已 5 个月。可口…",
+          "source": "历史叙述",
+          "body": "1988 年春，黑色星期一过去 5 个月。可口可乐 KO 股价 $2.40(复权)，PE 13。市场都说：\"消费股过气了，钱该轮到 PC 和生物科技。\"",
+          "pressure": 2
+        },
+        {
+          "date": "1988-04-01",
+          "type": "news",
+          "stance": "neutral",
+          "title": "巴菲特刚从纽约飞回奥马哈办公室. 桌上摆着一沓 KO 过去 …",
+          "source": "历史叙述",
+          "body": "巴菲特飞回奥马哈，桌上一沓 KO 近 10 年财报：ROE 31%，毛利 60%+，现金流连涨 10 年。他眯眼看了很久。",
+          "pressure": 2
+        },
+        {
+          "date": "1988-04-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "我喜欢的不是数字, 是这个生意: 一杯可口可乐成本不到 1 …",
+          "source": "buffett（大师判断）",
+          "body": "我看重的不是数字，是生意：一杯可乐成本不到 1 美分，卖 50 美分；配方 100 年没人破解，200 个国家都在喝。这就是消费独占。",
+          "pressure": 2
+        },
+        {
+          "date": "1988-04-01",
+          "type": "news",
+          "stance": "bear",
+          "title": "巴菲特, KO 已经 100 年, 增长率 4-5%, 增长…",
+          "source": "henry-brandt（市场声音）",
+          "body": "巴菲特, KO 已经 100 年, 增长率 4-5%, 增长见顶了. 你看高速增长的 PC 股: Compaq 三年 ×8, Sun ×6. 这才是 90 年代的方向.",
+          "pressure": 4
+        },
+        {
+          "date": "1988-04-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "你说\"增长见顶\", 我看到的是: KO 国际业务在过去 5 …",
+          "source": "buffett（大师判断）",
+          "body": "我看到的是：KO 国际营收占比 5 年从 30% 涨到 55%。中国、印度、拉美渗透率才 5-15%，美国 60%。这不是见顶，是刚开始。",
+          "pressure": 2
+        },
+        {
+          "date": "1988-04-01",
+          "type": "news",
+          "stance": "neutral",
+          "title": "巴菲特让秘书翻出 1981 年 Roberto Goizue…",
+          "source": "历史叙述",
+          "body": "调出 1981 年 Goizueta 上任后的报告：他砍掉百货、酒店、虾业务等 35 项副业，让 KO 重回可乐主业，ROE 从 18% 升到 31%。",
+          "pressure": 2
+        },
+        {
+          "date": "1988-04-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "Goizueta 给我做了一件最重要的事: 他证明了管理层有…",
+          "source": "buffett（大师判断）",
+          "body": "Goizueta 给我做了一件最重要的事: 他证明了管理层有\"砍业务\"的勇气. 这种 CEO, 你愿意把 30 亿美元交给他.",
+          "pressure": 2
+        },
+        {
+          "date": "1988-04-01",
+          "type": "news",
+          "stance": "bear",
+          "title": "我儿子说现在小孩都喝 Snapple、果汁、Gatorade…",
+          "source": "neighbor-bob（市场声音）",
+          "body": "我儿子说现在小孩都喝 Snapple、果汁、Gatorade, 不爱可乐了. 健康主义在崛起, KO 这种含糖饮料要被淘汰.",
+          "pressure": 4
+        },
+        {
+          "date": "1988-04-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "美国可乐人均消费 1988 年 274 罐, 中国 1 罐.…",
+          "source": "buffett（大师判断）",
+          "body": "1988 年美国人均喝 274 罐可乐，中国 1 罐。就算美国不增长，海外还有 300 倍空间。健康风潮只会逼 KO 出零度、健怡，挡不住全球喝。",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    },
+    {
+      "id": "act2",
+      "title": "初战验证",
+      "dateFrom": "1988-04-01",
+      "dateTo": "1988-09-30",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1988-04-19",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1988 年中。KO 三季度营收数据出来: 总营收 +6%,…",
+          "source": "历史叙述",
+          "body": "1988 年中，KO 三季度总营收 +6%，弱于预期 +9%。主因墨西哥比索贬 23%、巴西雷亚尔贬 31%，拉美美元营收缩水。",
+          "pressure": 2
+        },
+        {
+          "date": "1988-05-25",
+          "type": "news",
+          "stance": "bear",
+          "title": "三季度报弱于预期, 我跟你说了拉美汇率风险. 我准备先减仓避…",
+          "source": "henry-brandt（市场声音）",
+          "body": "三季度报弱于预期, 我跟你说了拉美汇率风险. 我准备先减仓避一避. 你呢?",
+          "pressure": 4
+        },
+        {
+          "date": "1988-07-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "拉美汇率是噪音, 不是基本面. KO 在拉美卖的可乐数量同比…",
+          "source": "buffett（大师判断）",
+          "body": "拉美汇率是噪音，不是基本面。KO 在拉美的可乐销量同比 +12%，生意在赢。报表数字比生意更糟——我看实物销量。",
+          "pressure": 2
+        },
+        {
+          "date": "1988-08-06",
+          "type": "news",
+          "stance": "neutral",
+          "title": "第二天巴菲特给 CEO Goizueta 打电话, 确认拉美…",
+          "source": "历史叙述",
+          "body": "巴菲特致电 CEO Goizueta，确认拉美实物销量、新品试销、成本控制。挂电话后他说：\"Goizueta 又用我没想到的法子控成本，这就是 ROE 31% 的真来源。\"",
+          "pressure": 2
+        },
+        {
+          "date": "1988-10-15",
+          "type": "news",
+          "stance": "neutral",
+          "title": "KO 三季度营收弱于预期, 拉美汇率拖累",
+          "source": "FT · 1988-10-16",
+          "body": "KO 1988 Q3 营收同比 +6%，弱于预期 +9%。主因墨西哥比索贬 23%、巴西雷亚尔贬 31%，拉美美元营收下滑。",
+          "pressure": 3
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    },
+    {
+      "id": "act3",
+      "title": "压力高潮",
+      "dateFrom": "1988-10-01",
+      "dateTo": "1989-03-31",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1988-10-19",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1989 年 2-4 月。机构资金大量轮动: 大型消费品净流…",
+          "source": "历史叙述",
+          "body": "1989 年 2-4 月，资金大轮动：大型消费品净流出 $52 亿，PC 与软件净流入 $47 亿。媒体头版：\"90 年代是科技股的十年。\"",
+          "pressure": 2
+        },
+        {
+          "date": "1988-11-24",
+          "type": "news",
+          "stance": "bear",
+          "title": "巴菲特你看, 资金都跑去 PC 了. KO 再不卖就晚了, …",
+          "source": "neighbor-bob（市场声音）",
+          "body": "巴菲特你看, 资金都跑去 PC 了. KO 再不卖就晚了, 你的钱困在这里能赚什么?",
+          "pressure": 4
+        },
+        {
+          "date": "1988-12-30",
+          "type": "news",
+          "stance": "bull",
+          "title": "机构 1 年的轮动跟一家公司 30 年的复利比, 是噪音. …",
+          "source": "buffett（大师判断）",
+          "body": "机构 1 年的轮动，跟一家公司 30 年的复利比，是噪音。我买 KO 不为今年涨多少，是为它未来 30 年的全球扩张。我不卖。",
+          "pressure": 2
+        },
+        {
+          "date": "1989-02-04",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1989 年中, 巴菲特在伯克希尔股东大会公开说: \"如果我…",
+          "source": "历史叙述",
+          "body": "1989 年中，巴菲特在伯克希尔股东大会公开说：\"要是有笔钱锁 10 年不能动，我就放可口可乐。\"次日 KO 涨 5%。",
+          "pressure": 2
+        },
+        {
+          "date": "1989-03-08",
+          "type": "news",
+          "stance": "neutral",
+          "title": "机构资金大量轮动: 消费股流出, 科技股流入",
+          "source": "Bloomberg · 1989-03-08",
+          "body": "2 月机构持仓：大型消费品净流出 $52 亿，PC 与软件净流入 $47 亿。市场认定 90 年代是科技股的十年。",
+          "pressure": 3
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    },
+    {
+      "id": "act4",
+      "title": "关键抉择",
+      "dateFrom": "1989-04-01",
+      "dateTo": "1989-06-30",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1989-04-23",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1989 年 12 月。KO 涨到 $2.85, 你浮盈 ~…",
+          "source": "历史叙述",
+          "body": "1989 年 12 月。KO 涨到 $2.85, 你浮盈 ~19%. 这不是终点, 是起点.",
+          "pressure": 2
+        },
+        {
+          "date": "1989-06-07",
+          "type": "news",
+          "stance": "bull",
+          "title": "我打算这辈子都不卖 KO. 这种生意, 你能找到几次? 巴菲…",
+          "source": "buffett（大师判断）",
+          "body": "我打算这辈子都不卖 KO. 这种生意, 你能找到几次? 巴菲特致股东信里, 我会写这一笔.",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    },
+    {
+      "id": "act5",
+      "title": "终局收割",
+      "dateFrom": "1989-07-01",
+      "dateTo": "1989-12-31",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1989-08-15",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1989 年底。账户净值见顶部。但接下来的 35 年, 才是…",
+          "source": "历史叙述",
+          "body": "1989 年底。账户净值见顶部。但接下来的 35 年, 才是这个故事的高潮: 1990s 全球扩张让 KO 涨到 $40+, 1998 亚洲危机回调到 $25, 2010s 健康趋势挑战, 2020s 疫情后恢复到 $60+.",
+          "pressure": 2
+        },
+        {
+          "date": "1989-11-15",
+          "type": "news",
+          "stance": "neutral",
+          "title": "巴菲特从 1988 年至今, 一笔没卖. 14 亿美元投资,…",
+          "source": "历史叙述",
+          "body": "巴菲特从 1988 年至今一股没卖。14 亿美元投入，含分红再投约 350 亿+，年化 +13%，持续 35 年。这是\"伟大公司+永久持有\"的教科书。",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    }
+  ],
+  "pressure": {
+    "base": 55,
+    "events": []
+  },
+  "master": {
+    "name": "股神（巴老）",
+    "track": [
+      {
+        "date": "2008-02",
+        "action": "李录（Li Lu）向查理系统性介绍比亚迪与王传福",
+        "note": "查理的结论：「他是爱迪生和韦尔奇的合体」——这是查理极少数主动向巴老力荐的公司"
+      },
+      {
+        "date": "2008-08",
+        "action": "派中美能源董事长索科尔（David Sokol）赴坪山尽调",
+        "note": "王传福当面喝下电池电解液：「我们的电池可以回收、无毒」"
+      },
+      {
+        "date": "2008-09",
+        "action": "9 月 27 日公告：以每股 8 港元认购 2.25 亿股，约 18 亿港元（2.3 亿美元），占比约 10%",
+        "note": "雷曼倒闭两周后出手。巴老：「我对汽车一窍不通，但我相信查理」"
+      },
+      {
+        "date": "2008-10",
+        "action": "全球恐慌再起，按兵不动等待审批",
+        "note": "史实中股价一度跌破 8 港元成本——股神也被套过，他一股未动"
+      },
+      {
+        "date": "2009-07",
+        "action": "监管批文走完，交易正式交割",
+        "note": "交割时股价已是认购价的五倍上下；全程没有「择时」二字"
+      },
+      {
+        "date": "2009-10",
+        "action": "股价最高升上 88 港元，浮盈约十倍，一股未卖",
+        "note": "2.3 亿美元账面变成二十多亿美元；王传福同期登顶中国首富"
+      },
+      {
+        "date": "2010-09",
+        "action": "股价腰斩途中，与查理、盖茨亲赴深圳为比亚迪站台",
+        "note": "持仓不动；这笔投资直到 2022 年才开始减持——十四年约三十倍"
+      }
+    ]
+  },
+  "recap": {
+    "lessons": [],
+    "peers": [
+      {
+        "min": 50,
+        "text": ""
+      },
+      {
+        "min": 0,
+        "text": ""
+      },
+      {
+        "min": -20,
+        "text": ""
+      }
+    ],
+    "personas": [
+      {
+        "cond": "s.liquidated",
+        "title": "融资爆仓者",
+        "desc": "加了杠杆，在最关键的低点被强制平仓，把翻身机会变成终局。"
+      },
+      {
+        "cond": "r.ret>=1.0",
+        "title": "长期信仰者",
+        "desc": "买入后经历所有波动，没有卖出——复利奇迹属于真正能持有的人。"
+      },
+      {
+        "cond": "r.ret>=0.3",
+        "title": "择机获利者",
+        "desc": "合适时机买入，合适时机卖出，获得丰厚回报。"
+      },
+      {
+        "cond": "r.ret>=-0.1",
+        "title": "折腾白忙者",
+        "desc": "频繁交易，手续费消耗判断优势，最终收益平平。"
+      },
+      {
+        "cond": "r.ret<-0.1",
+        "title": "高买低卖者",
+        "desc": "在错误时间做错误决定——情绪驱动的交易终要付出代价。"
+      },
+      {
+        "cond": "true",
+        "title": "旁观者",
+        "desc": "没有参与这次投资。每次历史性机会都是唯一的。"
+      }
+    ],
+    "modernEcho": ""
+  }
+}

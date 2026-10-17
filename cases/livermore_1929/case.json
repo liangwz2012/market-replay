@@ -1,0 +1,499 @@
+{
+  "id": "livermore_1929",
+  "title": "大崩盘 · 利弗莫尔 1929 一笔 1 亿美元",
+  "posterTitle": "投机之王",
+  "posterQuote": "",
+  "era": "1929 · 纽约华尔街",
+  "access": "invite",
+  "priceFiles": [
+    "prices/ore_1929.json"
+  ],
+  "role": {
+    "name": "独立投机交易商",
+    "aum": 10000000,
+    "desc": ""
+  },
+  "market": {
+    "type": "us",
+    "tplus": 0,
+    "lot": 1,
+    "feeRate": 0.0005,
+    "allowShort": true,
+    "benchmark": "ore_1929",
+    "margin": {
+      "enabled": true,
+      "maxLeverage": 10,
+      "annualRate": 0,
+      "forceLine": 1.1
+    }
+  },
+  "instruments": [
+    {
+      "id": "ore_1929",
+      "name": "大崩盘",
+      "kind": "futures",
+      "allowShort": true
+    }
+  ],
+  "opening": {
+    "dateLabel": "1929 · 纽约华尔街",
+    "title": "大崩盘",
+    "mood": "",
+    "lines": [
+      "1929 年夏, 纽约. 道指从 1924 年的 100 涨到 380, 涨幅 280%. 出租车司机、擦鞋童、家庭主妇",
+      "Jesse Livermore (52 岁) 已经是华尔街老牌投机者. 1907 年银行业恐慌他赚 100 万, 192",
+      "什么时候做空? 当杂货店伙计都在跟你讲股票内幕的时候. 1929 年 7 月, 我家旁边的杂货店伙计跟我推荐 RCA、A",
+      "胡佛、美联储, 这些政治家都是事后诸葛. 他们没看见 1929 年的债务杠杆. 散户保证金账户余额已超 GDP 5%, ",
+      "8-9 月. Livermore 让秘书在 30 家股票里建仓做空, 每跌一档加一仓. 他的\"金字塔做空\"策略: 总仓位",
+      "这是反向金字塔. 越跌越加, 平均成本越高, 但每加一笔都是在浮盈基础上. 一旦反向涨, 我会快速止损. 但凡熊市启动,"
+    ],
+    "cta": "进入 1929"
+  },
+  "fastBrief": [
+    {
+      "icon": "📊",
+      "text": "1929 年夏, 纽约. 道指从 1924 年的 100 涨到 380, 涨幅 "
+    },
+    {
+      "icon": "🌍",
+      "text": "Jesse Livermore (52 岁) 已经是华尔街老牌投机者. 1907"
+    },
+    {
+      "icon": "🏭",
+      "text": "8-9 月. Livermore 让秘书在 30 家股票里建仓做空, 每跌一档加"
+    },
+    {
+      "icon": "💡",
+      "text": "1929 年 9 月. 道指从 380 缓跌到 360, 利弗莫尔加仓 1 次."
+    },
+    {
+      "icon": "⚡",
+      "text": "…"
+    }
+  ],
+  "profile": {
+    "tabTitle": "标的研究",
+    "intro": "",
+    "narrative": "",
+    "bull": [],
+    "bear": [],
+    "metrics": [],
+    "valuationPctile": "",
+    "metricsNote": ""
+  },
+  "research": [],
+  "acts": [
+    {
+      "id": "act1",
+      "title": "布局入场",
+      "dateFrom": "1929-06-01",
+      "dateTo": "1929-06-01",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1929-06-01",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1929 年夏, 纽约. 道指从 1924 年的 100 涨…",
+          "source": "历史叙述",
+          "body": "1929年夏的纽约,道指从1924年的100涨到380,涨幅280%。出租车司机、擦鞋童、主妇都在炒股,5%的美国家庭手里有股票。",
+          "pressure": 2
+        },
+        {
+          "date": "1929-06-01",
+          "type": "news",
+          "stance": "neutral",
+          "title": "Jesse Livermore (52 岁) 已经是华尔街老…",
+          "source": "历史叙述",
+          "body": "利弗莫尔(Jesse Livermore),52岁,华尔街老牌投机客。1907年银行恐慌赚100万,1925年棉花一役亏350万,1928年做多通用(GM)又赚回800万。",
+          "pressure": 2
+        },
+        {
+          "date": "1929-06-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "什么时候做空? 当杂货店伙计都在跟你讲股票内幕的时候. 19…",
+          "source": "livermore（大师判断）",
+          "body": "什么时候做空?当杂货店伙计都来跟你讲股票内幕的时候。1929年7月,伙计向我推荐RCA、AT&T——这就是顶部信号。",
+          "pressure": 2
+        },
+        {
+          "date": "1929-06-01",
+          "type": "news",
+          "stance": "bear",
+          "title": "Jesse, 胡佛总统刚说\"美国经济基本面良好\". 美联储主…",
+          "source": "henry-brandt（市场声音）",
+          "body": "Jesse, 胡佛总统刚说\"美国经济基本面良好\". 美联储主席说软着陆. 你做空就是跟整个国家对赌.",
+          "pressure": 4
+        },
+        {
+          "date": "1929-06-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "胡佛、美联储, 这些政治家都是事后诸葛. 他们没看见 192…",
+          "source": "livermore（大师判断）",
+          "body": "胡佛和美联储都是事后诸葛,没看见1929年的债务杠杆。散户保证金余额已超GDP的5%,是1907年的3倍、1873年的5倍。历史总在押韵。",
+          "pressure": 2
+        },
+        {
+          "date": "1929-06-01",
+          "type": "news",
+          "stance": "neutral",
+          "title": "8-9 月. Livermore 让秘书在 30 家股票里建…",
+          "source": "历史叙述",
+          "body": "8-9月,利弗莫尔让秘书在30只股票里建空仓,每跌一档加一仓。这套\"金字塔做空\"总仓位4500万美元(今天约8亿),3倍杠杆。",
+          "pressure": 2
+        },
+        {
+          "date": "1929-06-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "这是反向金字塔. 越跌越加, 平均成本越高, 但每加一笔都是…",
+          "source": "livermore（大师判断）",
+          "body": "反向金字塔:越跌越加,每一笔都加在浮盈之上。一旦反向上涨我立刻止损;可一旦熊市启动,这种复利会爆发。",
+          "pressure": 2
+        },
+        {
+          "date": "1929-06-01",
+          "type": "news",
+          "stance": "bear",
+          "title": "但你 30 家股票 4500 万仓位, 杠杆 3 倍. 万一…",
+          "source": "neighbor-bob（市场声音）",
+          "body": "但你 30 家股票 4500 万仓位, 杠杆 3 倍. 万一 V 型反弹, 你一周爆仓.",
+          "pressure": 4
+        },
+        {
+          "date": "1929-06-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "我有 3 道防线: 1) 只在确定下跌后加仓; 2) 每加一…",
+          "source": "livermore（大师判断）",
+          "body": "我有 3 道防线: 1) 只在确定下跌后加仓; 2) 每加一笔都把上一笔止损价上移; 3) 任何一笔走反, 立刻清掉, 保住主力空头.",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    },
+    {
+      "id": "act2",
+      "title": "初战验证",
+      "dateFrom": "1929-06-01",
+      "dateTo": "1929-06-30",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1929-06-04",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1929 年 9 月. 道指从 380 缓跌到 360, 利…",
+          "source": "历史叙述",
+          "body": "1929 年 9 月. 道指从 380 缓跌到 360, 利弗莫尔加仓 1 次. 10 月初道指反弹到 370, 多头乐观.",
+          "pressure": 2
+        },
+        {
+          "date": "1929-06-11",
+          "type": "news",
+          "stance": "bull",
+          "title": "反弹是正常的. 任何顶部都不是直线下. 我没动, 等真正崩盘…",
+          "source": "livermore（大师判断）",
+          "body": "反弹是正常的. 任何顶部都不是直线下. 我没动, 等真正崩盘信号.",
+          "pressure": 2
+        },
+        {
+          "date": "1929-06-19",
+          "type": "news",
+          "stance": "bear",
+          "title": "你做空 4 周浮盈才几个百分点, 这种\"金字塔\"概念是不是想…",
+          "source": "henry-brandt（市场声音）",
+          "body": "你做空 4 周浮盈才几个百分点, 这种\"金字塔\"概念是不是想多了?",
+          "pressure": 4
+        },
+        {
+          "date": "1929-06-26",
+          "type": "news",
+          "stance": "neutral",
+          "title": "…",
+          "source": "历史叙述",
+          "body": "…",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    },
+    {
+      "id": "act3",
+      "title": "压力高潮",
+      "dateFrom": "1929-07-01",
+      "dateTo": "1929-07-31",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1929-07-04",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1929 年 10 月 24 日\"黑色星期四\". 道指开盘跌…",
+          "source": "历史叙述",
+          "body": "1929年10月24日\"黑色星期四\",道指开盘跌11%,爆仓盘涌出,摩根救市后收跌2.4%。但10月28日跌13%、29日\"黑色星期二\"跌12%,一周累跌23%。",
+          "pressure": 2
+        },
+        {
+          "date": "1929-07-10",
+          "type": "news",
+          "stance": "bull",
+          "title": "利弗莫尔单周浮盈 5000 万美元. 他打电话给经纪人锁仓:…",
+          "source": "livermore（大师判断）",
+          "body": "利弗莫尔单周浮盈 5000 万美元. 他打电话给经纪人锁仓: \"全部平仓, 立刻!\"",
+          "pressure": 2
+        },
+        {
+          "date": "1929-07-16",
+          "type": "news",
+          "stance": "bear",
+          "title": "你赚 5000 万, 一个礼拜? 你确定不是做梦?",
+          "source": "neighbor-bob（市场声音）",
+          "body": "你赚 5000 万, 一个礼拜? 你确定不是做梦?",
+          "pressure": 4
+        },
+        {
+          "date": "1929-07-22",
+          "type": "news",
+          "stance": "bull",
+          "title": "我的金字塔在最完美的时刻爆发. 4500 万仓位 + 杠杆 …",
+          "source": "livermore（大师判断）",
+          "body": "金字塔在最完美的时刻引爆:4500万仓位×3倍杠杆×平均跌30%,浮盈翻倍。我现在锁定,因为下一步可能反弹。",
+          "pressure": 2
+        },
+        {
+          "date": "1929-07-28",
+          "type": "news",
+          "stance": "neutral",
+          "title": "…",
+          "source": "历史叙述",
+          "body": "…",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    },
+    {
+      "id": "act4",
+      "title": "关键抉择",
+      "dateFrom": "1929-08-01",
+      "dateTo": "1932-07-31",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1930-05-01",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1929 年 12 月. 利弗莫尔账户从 4500 万涨到 …",
+          "source": "历史叙述",
+          "body": "1929 年 12 月. 利弗莫尔账户从 4500 万涨到 1 亿美元 (今天 18 亿). 这是金融史上单笔最大空头收益.",
+          "pressure": 2
+        },
+        {
+          "date": "1931-10-31",
+          "type": "news",
+          "stance": "bull",
+          "title": "40 天 ×2 倍. 这一笔我封神. 但市场之神不会眷顾任何…",
+          "source": "livermore（大师判断）",
+          "body": "40 天 ×2 倍. 这一笔我封神. 但市场之神不会眷顾任何人——接下来 5 年我会输光所有.",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    },
+    {
+      "id": "act5",
+      "title": "终局收割",
+      "dateFrom": "1932-08-01",
+      "dateTo": "1932-12-31",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1932-09-08",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1932 年 7 月. 道指触底 41 (从 1929 顶 …",
+          "source": "历史叙述",
+          "body": "1932年7月,道指触底41(较1929年顶点380跌89%)。利弗莫尔1929一战封神,却在1934-1939年的连环失误中输光全部身家。",
+          "pressure": 2
+        },
+        {
+          "date": "1932-11-23",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1940 年 11 月 28 日, 利弗莫尔在荷兰酒店浴室自…",
+          "source": "历史叙述",
+          "body": "1940 年 11 月 28 日, 利弗莫尔在荷兰酒店浴室自杀, 留下遗书: \"我是个失败者\". 60 岁, 65 岁的人. 这是金融史上最戏剧性的悲剧之一.",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    }
+  ],
+  "pressure": {
+    "base": 39,
+    "events": []
+  },
+  "master": {
+    "name": "投机之王",
+    "track": [
+      {
+        "date": "1929-06",
+        "action": "数次试探性做空被轧空，每次立刻止损离场",
+        "note": "亏小钱买情报——「市场没确认之前，观点一文不值」"
+      },
+      {
+        "date": "1929-09",
+        "action": "381 点见顶后，从龙头股滞涨读出顶部指纹，开始分批铺开空单",
+        "note": "他不做第一个，也不做最后一个——等关键点（Pivotal Point）确认才加码"
+      },
+      {
+        "date": "1929-10-24",
+        "action": "黑色星期四银行家护盘反弹中，他没有回补一股空单",
+        "note": "「护盘买的是时间，不是趋势」"
+      },
+      {
+        "date": "1929-10-29",
+        "action": "黑色星期二崩盘兑现，单周获利约 1 亿美元，登上各报头版",
+        "note": "全美国都在骂「搞垮股市的大空头」，他的电话里全是死亡威胁"
+      },
+      {
+        "date": "1929-11",
+        "action": "在 200 点附近逐步回补空单落袋，没有幻想「跌到零」",
+        "note": "「赚大钱靠的不是想，是坐（Sitting）」——但坐也有终点"
+      },
+      {
+        "date": "1930-04",
+        "action": "死猫反弹至 300 点上方时短暂做多，随后再度转空",
+        "note": "他跟随磁带（Tape）而非立场——反弹是行情，不是道歉"
+      },
+      {
+        "date": "1934-03",
+        "action": "第四次申请破产：1 亿美元在五年内全部亏光",
+        "note": "会赚钱和守得住是两回事——这是本剧最贵的一课"
+      },
+      {
+        "date": "1940-11",
+        "action": "在曼哈顿雪利酒店饮弹自尽，遗书写着「我的人生是一场失败」",
+        "note": "市场之王赢了 1929，却没有赢过自己"
+      }
+    ]
+  },
+  "recap": {
+    "lessons": [],
+    "peers": [
+      {
+        "min": 50,
+        "text": ""
+      },
+      {
+        "min": 0,
+        "text": ""
+      },
+      {
+        "min": -20,
+        "text": ""
+      }
+    ],
+    "personas": [
+      {
+        "cond": "s.liquidated",
+        "title": "被爆仓的追涨者",
+        "desc": "期货杠杆是双刃剑。趋势顺畅时加满仓，一次回调穿清盘线。"
+      },
+      {
+        "cond": "r.ret>=0.5",
+        "title": "趋势猎手",
+        "desc": "顺势重仓持有到位，把期货行情利润最大化。"
+      },
+      {
+        "cond": "r.ret>=0.1",
+        "title": "稳健参与者",
+        "desc": "抓住了趋势，但仓位保守或离场偏早。"
+      },
+      {
+        "cond": "r.ret>=-0.1",
+        "title": "震荡磨损者",
+        "desc": "来回操作，手续费和滑点消磨了判断优势。"
+      },
+      {
+        "cond": "r.ret<-0.1",
+        "title": "逆势抵抗者",
+        "desc": "与趋势对抗，在强势行情中持有反向头寸。"
+      },
+      {
+        "cond": "true",
+        "title": "空仓旁观者",
+        "desc": "保住了本金，但错过了历史性行情。机会成本也是成本。"
+      }
+    ],
+    "modernEcho": ""
+  }
+}

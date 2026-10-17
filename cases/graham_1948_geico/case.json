@@ -1,0 +1,504 @@
+{
+  "id": "graham_1948_geico",
+  "title": "GEICO 1948 · 格雷厄姆毕生最大胜利",
+  "posterTitle": "祖师爷",
+  "posterQuote": "",
+  "era": "1948 · 纽约证交所",
+  "access": "invite",
+  "priceFiles": [
+    "prices/geico.json"
+  ],
+  "role": {
+    "name": "格雷厄姆-纽曼公司基金经理",
+    "aum": 5000000,
+    "desc": ""
+  },
+  "market": {
+    "type": "us",
+    "tplus": 0,
+    "lot": 1,
+    "feeRate": 0.0008,
+    "allowShort": true,
+    "benchmark": "geico",
+    "dividendYield": 0.02,
+    "margin": {
+      "enabled": true,
+      "maxLeverage": 2,
+      "annualRate": 0.085,
+      "forceLine": 1.3
+    }
+  },
+  "instruments": [
+    {
+      "id": "geico",
+      "name": "GEICO 1948",
+      "kind": "stock",
+      "allowShort": true
+    }
+  ],
+  "opening": {
+    "dateLabel": "1948 · 纽约证交所",
+    "title": "GEICO 1948",
+    "mood": "",
+    "lines": [
+      "1948 年初, 纽约. Graham-Newman 合伙基金管理 600 万美元 (相当于今 7000 万). 格雷厄",
+      "有一天他收到一个新案例: GEICO (政府雇员保险公司), 1936 年成立, 创新了\"直销保险\" (无代理人, 直接",
+      "我研究了 GEICO 的财务. 它的成本比传统保险低 15-20%, 这是结构性优势. 不是营销, 是商业模式. 这种公",
+      "你说得对. 但我开始反思: 安全边际不只是账面价值. 一个能持续高速增长的商业模式, 也是一种安全边际——它的\"未来现金",
+      "格雷厄姆找 GEICO 创始人 Leo Goodwin 长谈. Goodwin 提出\"以 70 万美元买入 51% 股权",
+      "我跟 SEC 谈判, 他们最终批准: Graham-Newman 持有 51% GEICO 股权, 但 GEICO 股票"
+    ],
+    "cta": "进入 1948"
+  },
+  "fastBrief": [
+    {
+      "icon": "📊",
+      "text": "1948 年初, 纽约. Graham-Newman 合伙基金管理 600 万美"
+    },
+    {
+      "icon": "🌍",
+      "text": "有一天他收到一个新案例: GEICO (政府雇员保险公司), 1936 年成立,"
+    },
+    {
+      "icon": "🏭",
+      "text": "格雷厄姆找 GEICO 创始人 Leo Goodwin 长谈. Goodwin "
+    },
+    {
+      "icon": "💡",
+      "text": "1950 年. GEICO 客户从 1948 年的 30 万涨到 65 万, 翻"
+    },
+    {
+      "icon": "⚡",
+      "text": "…"
+    }
+  ],
+  "profile": {
+    "tabTitle": "标的研究",
+    "intro": "",
+    "narrative": "",
+    "bull": [],
+    "bear": [],
+    "metrics": [],
+    "valuationPctile": "",
+    "metricsNote": ""
+  },
+  "research": [],
+  "acts": [
+    {
+      "id": "act1",
+      "title": "布局入场",
+      "dateFrom": "1948-01-01",
+      "dateTo": "1948-01-01",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1948-01-01",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1948 年初, 纽约. Graham-Newman 合伙基…",
+          "source": "历史叙述",
+          "body": "1948 年初, 纽约. 格雷厄姆 (54 岁) 的 Graham-Newman 基金管理 600 万美元 (约合今 7000 万). 他刚写完《证券分析》第三版, 是华尔街最受敬重的价值派教授.",
+          "pressure": 2
+        },
+        {
+          "date": "1948-01-01",
+          "type": "news",
+          "stance": "neutral",
+          "title": "有一天他收到一个新案例: GEICO (政府雇员保险公司),…",
+          "source": "历史叙述",
+          "body": "新案例: GEICO (政府雇员保险公司), 1936 年成立, 首创直销保险 (无代理人, 电话承保). 1947 年净利仅 70 万, 但 5 年复合增速 +40%/年, 极快.",
+          "pressure": 2
+        },
+        {
+          "date": "1948-01-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "我研究了 GEICO 的财务. 它的成本比传统保险低 15-…",
+          "source": "graham（大师判断）",
+          "body": "我研究了 GEICO 的财务. 它的成本比传统保险低 15-20%, 这是结构性优势. 不是营销, 是商业模式. 这种公司可以跑很多年.",
+          "pressure": 2
+        },
+        {
+          "date": "1948-01-01",
+          "type": "news",
+          "stance": "bear",
+          "title": "格雷厄姆, 你写的《证券分析》核心是\"安全边际\". 但 GE…",
+          "source": "henry-brandt（市场声音）",
+          "body": "格雷厄姆, 你书里的核心是安全边际 (Margin of Safety). 可 GEICO 还在亏损, 账面价值低, 净流动资产更低——根本不达标.",
+          "pressure": 4
+        },
+        {
+          "date": "1948-01-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "你说得对. 但我开始反思: 安全边际不只是账面价值. 一个能…",
+          "source": "graham（大师判断）",
+          "body": "你说得对. 但我开始反思: 安全边际不只看账面. 一个能持续高速增长的生意, 本身就是安全边际——它的未来现金流远值今天的市值.",
+          "pressure": 2
+        },
+        {
+          "date": "1948-01-01",
+          "type": "news",
+          "stance": "neutral",
+          "title": "格雷厄姆找 GEICO 创始人 Leo Goodwin 长谈…",
+          "source": "历史叙述",
+          "body": "格雷厄姆找创始人 Leo Goodwin 长谈. 对方提出以 70 万美元买 51% 股权, 但 SEC 不许投资基金持有受监管行业 51% 的股份.",
+          "pressure": 2
+        },
+        {
+          "date": "1948-01-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "我跟 SEC 谈判, 他们最终批准: Graham-Newm…",
+          "source": "graham（大师判断）",
+          "body": "我去跟 SEC 谈, 最终批准: Graham-Newman 持 51% GEICO, 但股票要分到每个 LP 名下, 不留基金账上. 一个合规折中.",
+          "pressure": 2
+        },
+        {
+          "date": "1948-01-01",
+          "type": "news",
+          "stance": "bear",
+          "title": "你 70 万买一家亏损的保险小公司? 这违反你自己写的\"安全…",
+          "source": "neighbor-bob（市场声音）",
+          "body": "你 70 万买一家亏损的保险小公司? 这违反你自己写的\"安全边际\"原则. 你的学生巴菲特会怎么看你?",
+          "pressure": 4
+        },
+        {
+          "date": "1948-01-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "我承认这一笔不符合我书里写的. 但商业模式有时候比账面安全边…",
+          "source": "graham（大师判断）",
+          "body": "我承认这一笔不符合我书里写的. 但商业模式有时候比账面安全边际更重要. 这是我老年学到的最重要一课.",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    },
+    {
+      "id": "act2",
+      "title": "初战验证",
+      "dateFrom": "1948-01-01",
+      "dateTo": "1949-12-31",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1948-03-14",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1950 年. GEICO 客户从 1948 年的 30 万…",
+          "source": "历史叙述",
+          "body": "1950 年. GEICO 客户从 1948 年的 30 万翻倍到 65 万, 首次盈利, 净利 +200 万. 股价从 $4.50 涨到 $8, ×1.8.",
+          "pressure": 2
+        },
+        {
+          "date": "1948-08-07",
+          "type": "news",
+          "stance": "bull",
+          "title": "直销模式在跑通. 客户增长跟我预期一致. 我没动.",
+          "source": "graham（大师判断）",
+          "body": "直销模式在跑通. 客户增长跟我预期一致. 我没动.",
+          "pressure": 2
+        },
+        {
+          "date": "1948-12-31",
+          "type": "news",
+          "stance": "bear",
+          "title": "你浮盈 +80% 不卖? 我朋友说应该见好就收, 这种小盘股…",
+          "source": "henry-brandt（市场声音）",
+          "body": "你浮盈 +80% 不卖? 我朋友说应该见好就收, 这种小盘股容易回调.",
+          "pressure": 4
+        },
+        {
+          "date": "1949-05-25",
+          "type": "news",
+          "stance": "bull",
+          "title": "我不是为浮盈持有. 我是为复利持有. GEICO 这种\"零间…",
+          "source": "graham（大师判断）",
+          "body": "我不是为浮盈持有. 我是为复利持有. GEICO 这种\"零间接成本+客户复购\"模式, 时间越长越赚钱.",
+          "pressure": 2
+        },
+        {
+          "date": "1949-10-19",
+          "type": "news",
+          "stance": "neutral",
+          "title": "…",
+          "source": "历史叙述",
+          "body": "…",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    },
+    {
+      "id": "act3",
+      "title": "压力高潮",
+      "dateFrom": "1950-01-01",
+      "dateTo": "1956-12-31",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1950-09-13",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1956-1976 年. GEICO 经历多轮经济周期 (1…",
+          "source": "历史叙述",
+          "body": "1956-1976 年. 熬过 1958 衰退、1970 滞胀, GEICO 一次比一次强. 1965 年客户破 200 万, 股价 $65, 比 1948 入场涨 ×14.",
+          "pressure": 2
+        },
+        {
+          "date": "1952-02-06",
+          "type": "news",
+          "stance": "bull",
+          "title": "GEICO 让我修正了我的纯定量价值投资观——商业模式 (直…",
+          "source": "graham（大师判断）",
+          "body": "GEICO 让我修正了我的纯定量价值投资观——商业模式 (直销保险成本低 15-20%) 有时候比账面安全边际更重要.",
+          "pressure": 2
+        },
+        {
+          "date": "1953-07-02",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1976 年 GEICO 因为承保纪律放松濒临破产, 股价从…",
+          "source": "历史叙述",
+          "body": "1976 年 GEICO 承保纪律松弛, 濒临破产, 股价从 $61 崩到 $2. 巴菲特 (格雷厄姆的学生) 重仓抄底, 1996 年全资收购.",
+          "pressure": 2
+        },
+        {
+          "date": "1954-11-25",
+          "type": "news",
+          "stance": "bull",
+          "title": "(注: 巴菲特视角) 老师 1948 年买 GEICO 是他…",
+          "source": "buffett（大师判断）",
+          "body": "(巴菲特视角) 老师 1948 年买 GEICO 是他职业生涯最大胜利. 我 1976 年买, 是站在他肩膀上. 没有他, 我不会留意这家公司.",
+          "pressure": 2
+        },
+        {
+          "date": "1956-04-19",
+          "type": "news",
+          "stance": "neutral",
+          "title": "…",
+          "source": "历史叙述",
+          "body": "…",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    },
+    {
+      "id": "act4",
+      "title": "关键抉择",
+      "dateFrom": "1957-01-01",
+      "dateTo": "1957-12-31",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1957-04-02",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1972 年. 格雷厄姆 78 岁退休时, GEICO 涨到…",
+          "source": "历史叙述",
+          "body": "1972 年. 格雷厄姆 78 岁退休时, GEICO 涨到 $85, 比 1948 入场 ×19. 71 万美元投资变成 1300 万.",
+          "pressure": 2
+        },
+        {
+          "date": "1957-10-01",
+          "type": "news",
+          "stance": "bull",
+          "title": "GEICO 一笔的回报, 超过我职业生涯所有其他投资加起来.…",
+          "source": "graham（大师判断）",
+          "body": "GEICO 这一笔的回报, 超过我职业生涯其他所有投资加起来. 我学到的是: 找到商业模式独特、创始人执着的公司, 然后陪它走 20 年.",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    },
+    {
+      "id": "act5",
+      "title": "终局收割",
+      "dateFrom": "1958-01-01",
+      "dateTo": "1972-12-31",
+      "scene": {
+        "dateLabel": "",
+        "title": "",
+        "mood": "",
+        "lines": [],
+        "cta": ""
+      },
+      "expectation": {
+        "prompt": ""
+      },
+      "intradayDates": [],
+      "events": [
+        {
+          "date": "1961-10-01",
+          "type": "news",
+          "stance": "neutral",
+          "title": "1972 年底. 格雷厄姆退休. GEICO 后来 1976…",
+          "source": "历史叙述",
+          "body": "1972 年底格雷厄姆退休. GEICO 此后挺过 1976 危机, 1996 年被巴菲特全资收购, 至今为伯克希尔贡献 1500 亿浮存金.",
+          "pressure": 2
+        },
+        {
+          "date": "1969-04-01",
+          "type": "news",
+          "stance": "neutral",
+          "title": "格雷厄姆这一笔不仅改变了他自己, 也改变了他的学生巴菲特的投…",
+          "source": "历史叙述",
+          "body": "这一笔不只改变了格雷厄姆, 也重塑了学生巴菲特的投资观. 巴菲特后来说: GEICO 这一笔让我懂了\"商业模式安全边际\".\"",
+          "pressure": 2
+        }
+      ],
+      "actRecap": {
+        "masterMove": "",
+        "lesson": ""
+      }
+    }
+  ],
+  "pressure": {
+    "base": 35,
+    "events": []
+  },
+  "master": {
+    "name": "祖师爷",
+    "track": [
+      {
+        "date": "1934-01-01",
+        "action": "与多德合著《证券分析》，开创证券分析与价值投资学派，提出用「内在价值（Intrinsic Value）」而非市场报价衡量一只股票，奠定一生的方法论根基",
+        "note": "他不预测宏观、不追市场情绪，只相信「价格围绕内在价值波动」。这套以财务分析为骨架的笨办法，把投资从赌博变成了一门可学习的学科，影响了此后几代投资者"
+      },
+      {
+        "date": "1948-01-01",
+        "action": "翻到 GEICO 这桩生意：一家 1936 年成立的直销车险公司，净利仅 70 万、账面价值低，按他自己的捡烟蒂标准根本不符合「安全边际」",
+        "note": "但他看懂了它的结构性优势——直销砍掉代理人佣金、费用率低同业 15%-20%、专保政府雇员赔付率更低、净利 40% 复利。账面看不出的便宜，藏在未来现金流里"
+      },
+      {
+        "date": "1948-06-01",
+        "action": "做出毕生最大的单笔决定：以约 71 万美元买入 GEICO 约一半股权、占基金约四分之一，并出任董事长——公开违反自己布道一生的分散原则",
+        "note": "他承认这一注靠的是「我真的彻底看懂了这门生意」。集中是认知足够深时的奖赏，分散是认知不足时的保护——GEICO 让他第一次把这个判断付诸毕生最大的行动"
+      },
+      {
+        "date": "1949-05-01",
+        "action": "出版《聪明的投资者》，提出「市场先生（Mr. Market）」寓言与「安全边际」核心信条，被后世奉为价值投资的圣经",
+        "note": "「价格是你付出的，价值是你得到的。」他教投资者把市场当成情绪躁狂的仆人、而非向导——只在市场先生报出离谱低价时买。这套心法，是他能拿住 GEICO 二十多年的底层操作系统"
+      },
+      {
+        "date": "1956-05-01",
+        "action": "逐步淡出主动投资管理，转向著述与在哥伦比亚大学、加州大学的教学，把价值投资的方法论系统地传给下一代",
+        "note": "他最重要的学生（巴老）把「以合理价格买卓越生意」发扬到极致，并在 1970 年代再度重仓 GEICO。祖师爷留给后人的不是某一笔交易，而是一整套可传承的思想框架"
+      },
+      {
+        "date": "1972-12-29",
+        "action": "GEICO 这笔 1948 年 71 万美元的投资增长到约 1300 万（含分红约 19 倍），超过他毕生写过的所有低估值组合的总和——成为价值投资之父一生最大的胜利",
+        "note": "他坦言：是 GEICO 让我修正了纯定量的价值投资观——商业模式（直销保险成本低 15-20%）有时比账面安全边际更重要。一桩好生意的复利，胜过一百只捡来的烟蒂"
+      },
+      {
+        "date": "1976-09-21",
+        "action": "祖师爷离世，享年 82 岁。他被公认为「价值投资之父」，其安全边际、内在价值、市场先生三大思想，至今仍是全球价值投资者的共同语言",
+        "note": "他赚到 GEICO 这笔钱的全部秘密不是预测，是看懂、重押、拿住，外加为真正的好机会勇敢修正自己的框架。最好的投资，往往挑战你既有的纪律——分辨『纪律在保护我』还是『框架已落后』，是终身的功课"
+      }
+    ]
+  },
+  "recap": {
+    "lessons": [],
+    "peers": [
+      {
+        "min": 50,
+        "text": ""
+      },
+      {
+        "min": 0,
+        "text": ""
+      },
+      {
+        "min": -20,
+        "text": ""
+      }
+    ],
+    "personas": [
+      {
+        "cond": "s.liquidated",
+        "title": "融资爆仓者",
+        "desc": "加了杠杆，在最关键的低点被强制平仓，把翻身机会变成终局。"
+      },
+      {
+        "cond": "r.ret>=1.0",
+        "title": "长期信仰者",
+        "desc": "买入后经历所有波动，没有卖出——复利奇迹属于真正能持有的人。"
+      },
+      {
+        "cond": "r.ret>=0.3",
+        "title": "择机获利者",
+        "desc": "合适时机买入，合适时机卖出，获得丰厚回报。"
+      },
+      {
+        "cond": "r.ret>=-0.1",
+        "title": "折腾白忙者",
+        "desc": "频繁交易，手续费消耗判断优势，最终收益平平。"
+      },
+      {
+        "cond": "r.ret<-0.1",
+        "title": "高买低卖者",
+        "desc": "在错误时间做错误决定——情绪驱动的交易终要付出代价。"
+      },
+      {
+        "cond": "true",
+        "title": "旁观者",
+        "desc": "没有参与这次投资。每次历史性机会都是唯一的。"
+      }
+    ],
+    "modernEcho": ""
+  }
+}
