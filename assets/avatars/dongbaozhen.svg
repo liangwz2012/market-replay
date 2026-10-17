@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#3a2c1a"/>
+      <stop offset="100%" stop-color="#16100a"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3d489"/>
+      <stop offset="100%" stop-color="#c9982f"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="url(#bg)"/>
+  <circle cx="100" cy="100" r="92" fill="none" stroke="url(#gold)" stroke-width="2" opacity="0.7"/>
+  <circle cx="100" cy="100" r="86" fill="none" stroke="#c9982f" stroke-width="0.6" opacity="0.35"/>
+  <text x="100" y="124" text-anchor="middle" font-family="Songti SC, STSong, SimSun, serif" font-size="92" font-weight="700" fill="url(#gold)">董</text>
+  <rect x="136" y="138" width="26" height="26" rx="3" fill="#a32a22"/>
+  <text x="149" y="157" text-anchor="middle" font-family="Songti SC, STSong, SimSun, serif" font-size="15" fill="#f5e3c0">守仓</text>
+</svg>

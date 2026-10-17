@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>人人复盘</title>
+<meta name="description" content="带着当时的信息、当时的资金、当时的压力，在真实 K 线里重活一遍 2015。投资史教育体验产品，不构成投资建议。">
+<meta property="og:title" content="人人复盘">
+<meta property="og:description" content="2015-06-12，上证 5178 见顶。你管理 3 亿资金，重活一遍那个夏天。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="css/app.css?v=20260628e">
+<!-- 关键脚本提前预载：解析head时就开始下载最大的两个，和body解析并行，省一个往返 -->
+<link rel="preload" as="script" href="js/main.js?v=20260628e">
+<link rel="preload" as="script" href="js/ui.js?v=20260628e">
+<script>
+/* 微信 / 手机QQ / 微博 内置浏览器 → 合规教育模式（去分享解锁、去同行排行、去站外收款、强化免责）。
+   ?wx=1 可在任意浏览器手动触发，便于测试。尽早执行：加 class 避免闪烁、置 MR.WECHAT 供各模块读取。 */
+(function () {
+  var ua = navigator.userAgent || '';
+  var wx = /MicroMessenger|\bQQ\/|MQQBrowser|Weibo|WeiBo/i.test(ua) || /[?&]wx=1/.test(location.search);
+  window.MR = window.MR || {};
+  window.MR.WECHAT = wx;
+  if (wx) document.documentElement.classList.add('wechat-mode');
+})();
+/* 每日盘后复盘入口放出：daily-recap.html 读 recap-data.json 自动渲染，
+   收盘后由 tools/gen_daily_recap.py 刷新数据。内容不成熟时改回 false 即可收起入口。 */
+window.MR_DAILY_RECAP = true;
+</script>
+</head>
+<body>
+<div id="app">
+
+  <!-- ===== 剧本大厅 ===== -->
+  <div id="lobby">
+    <div class="brand">
+      <h1>人人复盘</h1>
+      <div class="sub">经典战役复盘 · 真实行情 · 真实新闻 · 亲手交易</div>
+    </div>
+    <div class="fav-tip">★ 记得<b>收藏本页</b>（微信点右上角 ···），下次直接打开，别找不到</div>
+    <div id="case-list"><div class="lobby-skel" aria-hidden="true">
+      <div class="sk-tabs"><span></span><span></span><span></span></div>
+      <div class="sk-row"></div><div class="sk-row"></div><div class="sk-row"></div>
+    </div></div>
+    <div class="lobby-foot">
+      <span class="link" id="lobby-invite">🛒 解锁更多剧本</span>
+      <span class="link" id="lobby-redeem">🔑 解锁全部</span>
+    </div>
+  </div>
+
+  <!-- ===== 场景层（时代叙事） ===== -->
+  <div id="scene-layer" class="hidden">
+    <div class="scene-era-bg"></div>
+    <button id="scene-back" class="layer-back" type="button">‹</button>
+    <div id="scene-body"></div>
+    <div id="scene-foot"></div>
+  </div>
+
+  <!-- ===== 交易终端 ===== -->
+  <div id="terminal-layer" class="hidden">
+    <div id="t-hud">
+      <button id="t-back" type="button">‹</button>
+      <div id="t-date" class="num">2015-03-02</div>
+      <div id="t-bpm" class="num">♥ 62</div>
+      <button id="mute-btn" type="button" aria-label="声音"></button>
+      <div id="t-nav-wrap"><span id="t-nav-label">净值</span> <span id="t-nav" class="num">1.0000</span></div>
+    </div>
+    <div id="t-warnline"></div>
+
+    <div id="instr-tabs"></div>
+    <div id="recon-note" style="display:none"></div>
+
+    <div id="chart-wrap">
+      <canvas id="kchart"></canvas>
+      <div id="chart-zoom">
+        <button id="zoom-out" type="button" aria-label="缩小看全局">－</button>
+        <button id="zoom-in" type="button" aria-label="放大看细节">＋</button>
+      </div>
+      <div id="intra-banner">⏱ 关键日 · 分时盯盘中</div>
+    </div>
+
+    <div class="drag-handle" id="dh-chart"><span></span></div>
+
+    <!-- 消息流：打字机模式，紧贴K线成交量下方 -->
+    <div id="msg-strip"><div id="msg-feed"></div></div>
+
+    <div class="drag-handle" id="dh-msg"><span></span></div>
+
+    <div id="play-bar">
+      <button id="btn-play" type="button">▶ 播放</button>
+      <div id="speed-wrap">
+        <button class="speed-btn" data-s="0.25" type="button">0.25×</button>
+        <button class="speed-btn" data-s="0.5" type="button">0.5×</button>
+        <button class="speed-btn" data-s="1" type="button">1×</button>
+        <button class="speed-btn on" data-s="2" type="button">2×</button>
+        <button class="speed-btn" data-s="4" type="button">4×</button>
+        <button class="speed-btn" data-s="8" type="button">8×</button>
+        <button class="speed-btn" data-s="16" type="button">16×</button>
+        <button class="speed-btn" data-s="32" type="button">32×</button>
+      </div>
+      <button id="btn-hold" type="button" title="长期持有到底">🌱 长持</button>
+    </div>
+
+    <div id="order-panel">
+      <!-- 年复盘/美股：停在「大盘」只读标签时显示，引导点行业进去交易 -->
+      <div id="watch-hint" style="display:none">📊 大盘仅供参考 · 点上方行业标签进去交易</div>
+      <!-- 仓位档：按整体权益的比例（开仓=新增该比例占用；平仓=平掉持仓的该比例） -->
+      <div class="opct">
+        <button class="chip" data-p="1" type="button">1%</button>
+        <button class="chip" data-p="5" type="button">5%</button>
+        <button class="chip" data-p="10" type="button">10%</button>
+        <button class="chip" data-p="15" type="button">15%</button>
+        <button class="chip on" data-p="25" type="button">25%</button>
+        <button class="chip" data-p="50" type="button">50%</button>
+        <button class="chip" data-p="100" type="button">满仓</button>
+      </div>
+      <div class="orow">
+        <button id="btn-buy" class="obtn buy" type="button">买入</button>
+        <button id="btn-close" class="obtn close" type="button">平仓</button>
+        <button id="btn-short" class="obtn sell" type="button">卖空</button>
+      </div>
+      <label id="margin-row" style="display:none"><input type="checkbox" id="margin-check">融资<span class="mr-warn">2×杠杆 · 年息8.5% · 强平线130%</span></label>
+    </div>
+
+    <!-- 持仓 / 研究：交易按钮下方，可切换 -->
+    <div id="b-tabs">
+      <button class="btab on" data-t="pos" type="button">持仓</button>
+      <button class="btab" data-t="research" type="button">研究</button>
+    </div>
+    <div id="b-content">
+      <div id="tab-pos"></div>
+      <div id="tab-research" class="hidden"></div>
+    </div>
+  </div>
+
+  <!-- 研究全屏阅读层 -->
+  <div id="research-full" class="hidden"></div>
+
+  <!-- ===== 终局复盘 ===== -->
+  <div id="recap-layer" class="hidden"></div>
+
+  <div id="vignette"></div>
+  <div id="flash"></div>
+  <div id="toast"></div>
+  <div id="disclaimer">投资史教育体验产品 · 不构成投资建议</div>
+</div>
+
+<!-- 首屏关键路径（同步，决定大厅多快出来）：audio(顶层心跳依赖)/codes/growth/track/ui/main -->
+<script src="js/audio.js?v=20260628e"></script>
+<script src="js/codes.js?v=20260628e"></script>
+<script src="js/growth.js?v=20260628e"></script>
+<script src="js/track.js?v=20260628e"></script>
+<script src="js/ui.js?v=20260628e"></script>
+<script src="js/blind.js?v=20260628e"></script>
+<script src="js/main.js?v=20260628e"></script>
+<!-- 游戏引擎（async，后台加载、不阻塞首屏）：只在点开剧本/复盘时才用，开局前要先异步取行情，届时早已就绪 -->
+<script async src="js/engine.js?v=20260628e"></script>
+<script async src="js/chart.js?v=20260628e"></script>
+<script async src="js/recap.js?v=20260628e"></script>
+<!-- 二维码库（async）：海报按局生成 ?case= 深链二维码用，点分享时才需要，未就绪回退静态码 -->
+<script async src="js/qrcode.min.js?v=20260628e"></script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>每日复盘 · 人人复盘</title>
+<style>
+  :root{ --gold:#f0c040; --up:#ef5350; --down:#26a69a; --txt:#e6edf3; --sub:#8b949e; --card:#121620; --line:rgba(255,255,255,.08); }
+  *{ box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+  body{ background:#0b0e14; color:var(--txt); font-family:"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.65; padding-bottom:40px; }
+  .wrap{ max-width:560px; margin:0 auto; }
+  .top{ background:linear-gradient(160deg,#1c1408 0%,#0b0e14 74%); padding:24px 20px 20px; position:relative; overflow:hidden; border-bottom:1px solid rgba(240,192,64,.16); }
+  .top::after{ content:''; position:absolute; top:-60px; right:-40px; width:220px; height:220px; background:radial-gradient(circle,rgba(240,192,64,.18),transparent 70%); pointer-events:none; }
+  .logo{ font-size:11.5px; letter-spacing:4px; color:var(--gold); opacity:.9; }
+  .top h1{ font-size:27px; font-weight:700; margin:6px 0 4px; letter-spacing:1px; background:linear-gradient(90deg,#fff 10%,#f6d98a 60%,#f0c040 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; }
+  .top h1::after{ content:''; display:block; width:46px; height:3px; margin-top:8px; border-radius:2px; background:linear-gradient(90deg,var(--gold),transparent); -webkit-text-fill-color:initial; }
+  /* 说人话：通俗速懂层 */
+  .plain{ margin-top:11px; padding:12px 14px; background:linear-gradient(135deg,rgba(38,166,154,.10),rgba(38,166,154,.04)); border:1px solid rgba(95,208,196,.28); border-radius:12px; font-size:14px; color:#e6edf3; line-height:1.72; }
+  .plain::before{ content:'💡 说人话'; display:inline-block; font-size:11px; font-weight:700; color:#5fd0c4; letter-spacing:.5px; background:rgba(38,166,154,.16); border:1px solid rgba(95,208,196,.4); border-radius:20px; padding:2px 10px; margin-right:8px; vertical-align:1px; }
+  .plain b{ color:#7fe0d4; font-weight:600; }
+  .datebar{ display:flex; align-items:center; justify-content:space-between; }
+  .date{ font-size:13px; color:var(--sub); }
+  .share-d{ font-size:12px; color:var(--gold); border:1px solid rgba(240,192,64,.4); border-radius:20px; padding:3px 12px; background:none; }
+  .tone{ margin-top:13px; padding:11px 13px; background:rgba(240,192,64,.08); border-left:3px solid var(--gold); border-radius:0 8px 8px 0; font-size:14.5px; }
+  .tone b{ color:var(--gold); }
+  .demo{ display:inline-block; margin-top:11px; font-size:11px; color:#c9a84a; background:rgba(240,192,64,.12); border:1px solid rgba(240,192,64,.3); border-radius:20px; padding:3px 10px; }
+  section{ padding:18px 20px; border-top:8px solid #06080d; }
+  .sec-h{ display:flex; align-items:center; gap:8px; font-size:16px; font-weight:600; margin-bottom:13px; }
+  .sec-h .bar{ width:4px; height:16px; background:var(--gold); border-radius:2px; }
+  .tag{ font-size:11px; color:var(--sub); font-weight:400; }
+  /* 多资产四宫格 */
+  .assets{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .as{ background:var(--card); border-radius:12px; padding:12px; }
+  .as .nm{ font-size:12px; color:var(--sub); display:flex; justify-content:space-between; }
+  .as .pc{ font-weight:600; }
+  .as .pc.up{ color:var(--up); } .as .pc.down{ color:var(--down); } .as .pc.flat{ color:var(--gold); }
+  .as svg{ width:100%; height:38px; margin-top:6px; display:block; }
+  .as .sig{ font-size:11px; color:var(--sub); margin-top:4px; }
+  /* 文本 */
+  .p-txt{ font-size:14.5px; color:#d6dde6; margin-bottom:10px; }
+  .p-txt b{ color:var(--gold); font-weight:600; }
+  .byline{ font-size:11px; color:var(--gold); opacity:.85; margin:-2px 0 10px; letter-spacing:.5px; }
+  .mainline{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .ml{ font-size:13px; padding:6px 12px; border-radius:20px; background:#161b26; color:var(--sub); border:1px solid var(--line); }
+  .ml.on{ background:rgba(240,192,64,.14); color:var(--gold); border-color:rgba(240,192,64,.45); font-weight:600; }
+  /* 互动推演 */
+  .quiz{ background:linear-gradient(135deg,#1a1206,#11151d); border:1px solid rgba(240,192,64,.3); border-radius:14px; padding:18px; }
+  .quiz .qh{ font-size:17px; font-weight:600; margin-bottom:4px; }
+  .quiz .qs{ font-size:13px; color:var(--sub); margin-bottom:14px; }
+  .opt{ display:block; width:100%; text-align:left; background:#0e1219; border:1px solid var(--line); color:var(--txt); font-size:14.5px; padding:13px 15px; border-radius:10px; margin-bottom:9px; transition:.15s; }
+  .opt:active{ transform:scale(.985); }
+  .opt .lead{ color:var(--gold); font-weight:600; margin-right:6px; }
+  .opt.picked{ border-color:var(--gold); background:rgba(240,192,64,.08); }
+  .opt.right{ border-color:var(--down); background:rgba(38,166,154,.12); }
+  .opt.wrong{ border-color:var(--up); background:rgba(239,83,80,.10); opacity:.7; }
+  .opt .mk{ float:right; font-weight:700; }
+  /* 揭晓 */
+  .reveal{ display:none; margin-top:14px; }
+  .reveal.show{ display:block; animation:fade .4s ease; }
+  @keyframes fade{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:none;} }
+  .verdict{ font-size:15px; font-weight:600; padding:12px 14px; border-radius:10px; margin-bottom:12px; }
+  .verdict.stand{ background:rgba(38,166,154,.14); color:#5fd0c4; border:1px solid rgba(38,166,154,.4); }
+  .verdict.rev{ background:rgba(239,83,80,.14); color:#ff8a87; border:1px solid rgba(239,83,80,.4); }
+  .verdict.div{ background:rgba(240,192,64,.12); color:var(--gold); border:1px solid rgba(240,192,64,.4); }
+  .pm-chart{ background:var(--card); border-radius:12px; padding:14px 12px 10px; }
+  .pm-chart .ttl{ font-size:12px; color:var(--sub); margin-bottom:8px; }
+  .pm-chart svg{ width:100%; height:120px; display:block; }
+  .ann{ font-size:13px; color:#cdd5de; margin-top:10px; }
+  .ann b{ color:var(--gold); }
+  /* 分品种详评（折叠展开） */
+  .inst-item{ background:var(--card); border:1px solid var(--line); border-radius:12px; margin-bottom:10px; overflow:hidden; }
+  .inst-item>summary{ list-style:none; cursor:pointer; padding:13px 16px; display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:15px; font-weight:600; }
+  .inst-item>summary::-webkit-details-marker{ display:none; }
+  .inst-item>summary::after{ content:'▾'; color:var(--sub); font-size:13px; transition:transform .2s; flex:none; }
+  .inst-item[open]>summary::after{ transform:rotate(180deg); }
+  .inst-item .it-t.up{ color:var(--up); } .inst-item .it-t.down{ color:var(--down); } .inst-item .it-t.flat{ color:var(--txt); }
+  .inst-item .inst-body{ padding:2px 16px 14px; border-top:1px solid var(--line); }
+  .inst-item .inst-body p{ font-size:13.5px; color:#cdd5de; margin:9px 0 0; line-height:1.65; }
+  .inst-item .inst-body b{ color:var(--gold); font-weight:600; }
+  /* 历史导流 */
+  .relive{ background:linear-gradient(135deg,#1a1206,#11151d); border:1px solid rgba(240,192,64,.25); border-radius:14px; padding:18px; }
+  .relive .bd{ font-size:11px; color:var(--gold); letter-spacing:1px; }
+  .relive h3{ font-size:17px; margin:6px 0 8px; }
+  .relive p{ font-size:13px; color:var(--sub); margin-bottom:14px; }
+  .relive .btn{ display:block; text-align:center; background:var(--gold); color:#1a1206; font-weight:600; font-size:15px; padding:12px; border-radius:10px; text-decoration:none; }
+  /* 底部分享+二维码 */
+  .foot{ padding:22px 20px; text-align:center; }
+  .qr-box{ display:inline-flex; flex-direction:column; align-items:center; gap:8px; background:var(--card); border-radius:14px; padding:16px 22px; }
+  .qr{ width:104px; height:104px; background:#fff; border-radius:8px; display:grid; place-items:center; color:#0b0e14; font-size:11px; text-align:center; }
+  .qr-img{ width:124px; height:auto; border-radius:8px; display:block; }
+  .qr-box .t{ font-size:12px; color:var(--sub); }
+  .share-b{ display:block; width:100%; margin-top:16px; background:var(--gold); color:#1a1206; font-weight:600; font-size:15px; padding:13px; border-radius:12px; border:none; }
+  .disc{ font-size:11px; color:#5a626d; margin-top:18px; line-height:1.6; }
+  /* 分享海报弹窗 */
+  .pm-mask{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.85); z-index:99; align-items:center; justify-content:center; padding:24px; }
+  .pm-mask.show{ display:flex; }
+  .pm-box{ width:100%; max-width:340px; text-align:center; }
+  .pm-img{ width:100%; border-radius:14px; display:block; box-shadow:0 8px 40px rgba(0,0,0,.5); }
+  .pm-tip{ color:#e6edf3; font-size:13px; margin-top:14px; }
+  .pm-close{ margin-top:12px; background:none; border:1px solid rgba(255,255,255,.28); color:#8b949e; border-radius:20px; padding:7px 22px; font-size:13px; }
+  /* 日期列表 + 返回 */
+  .lv-sub{ font-size:13px; color:var(--sub); margin-top:6px; }
+  .dl-list{ padding:16px 20px 4px; }
+  .dl-row{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:15px 16px; margin-bottom:12px; cursor:pointer; }
+  .dl-row:active{ background:#1a2030; }
+  .dl-date{ font-size:16px; font-weight:600; color:var(--gold); }
+  .dl-tone{ font-size:13.5px; color:#d6dde6; margin-top:6px; line-height:1.5; }
+  .dl-go{ font-size:12px; color:var(--gold); margin-top:9px; }
+  .dl-empty{ color:var(--sub); text-align:center; padding:48px 20px; }
+  .backbar{ font-size:13px; color:var(--gold); cursor:pointer; margin-bottom:10px; }
+  .backbar span{ cursor:pointer; }
+  .bb-sep{ color:var(--sub); cursor:default; }
+  /* 时间轴：日 → 周 → 月，随交易日不断往下长 */
+  .tl{ position:relative; padding:18px 20px 8px 40px; }
+  .tl::before{ content:''; position:absolute; left:17px; top:24px; bottom:22px; width:2px; background:linear-gradient(180deg,rgba(240,192,64,.5),rgba(240,192,64,.05)); }
+  .tl-cad{ font-size:12px; color:var(--sub); margin:0 0 16px 0; line-height:1.5; }
+  .tl-row{ position:relative; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:13px 16px; margin-bottom:14px; cursor:pointer; }
+  .tl-row::before{ content:''; position:absolute; left:-28px; top:17px; width:12px; height:12px; border-radius:50%; background:var(--gold); box-shadow:0 0 0 4px #0b0e14; }
+  .tl-row:active{ background:#1a2030; }
+  .tl-row.up{ cursor:default; opacity:.55; border-style:dashed; }
+  .tl-row.up::before{ background:#8b949e; }
+  .tl-badge{ display:inline-block; font-size:11px; font-weight:600; padding:2px 9px; border-radius:20px; margin-bottom:7px; }
+  .tl-badge.day{ color:var(--gold); background:rgba(240,192,64,.12); border:1px solid rgba(240,192,64,.35); }
+  .tl-badge.week{ color:#5fd0c4; background:rgba(38,166,154,.12); border:1px solid rgba(38,166,154,.4); }
+  .tl-badge.month{ color:#b794f6; background:rgba(167,139,250,.14); border:1px solid rgba(167,139,250,.4); }
+  .tl-date{ font-size:15.5px; font-weight:600; color:var(--txt); }
+  .tl-tone{ font-size:13.5px; color:#d6dde6; margin-top:6px; line-height:1.5; }
+  .tl-go{ font-size:12px; color:var(--gold); margin-top:9px; }
+</style>
+</head>
+<body>
+
+<!-- 日期列表视图：进入先看这个，点某天才进当天复盘 -->
+<div class="wrap" id="list-view" style="display:none">
+  <div class="top">
+    <div class="backbar" onclick="goLobby()">‹ 返回大厅</div>
+    <div class="logo">人 人 复 盘 · 每 日 复 盘</div>
+    <h1>每日复盘</h1>
+    <div class="lv-sub">每天收盘后 · 多资产速览 + 深度解读 · 选一天进入</div>
+  </div>
+  <div class="tl" id="dl-rows"></div>
+  <p class="disc" style="padding:0 20px 28px">投资者教育 · 客观梳理 · 不构成投资建议</p>
+</div>
+
+<!-- 复盘详情视图 -->
+<div class="wrap" id="detail-view">
+
+  <div class="top">
+    <div class="backbar"><span onclick="goLobby()">‹ 返回大厅</span><span class="bb-sep"> · </span><span onclick="backToList()">日期列表</span></div>
+    <div class="logo">人 人 复 盘 · 每 日 复 盘</div>
+    <h1>每日复盘</h1>
+    <div class="datebar">
+      <span class="date" id="rc-date">加载中…</span>
+      <button class="share-d" onclick="doShare()">📅 分享当日 ↗</button>
+    </div>
+    <div class="tone" id="rc-tone"></div>
+    <div class="plain" id="rc-plain" style="display:none"></div>
+    <div class="demo" id="rc-demo" style="display:none">⚠ 示例数据 · 正式版接行情自动生成</div>
+  </div>
+
+  <!-- 多资产速览 -->
+  <section>
+    <div class="sec-h"><span class="bar"></span>一、多资产速览</div>
+    <div class="assets" id="rc-assets"></div>
+  </section>
+
+  <!-- 归纳 -->
+  <section>
+    <div class="sec-h"><span class="bar"></span>二、盘面在交易什么逻辑</div>
+    <div class="mainline" id="rc-tags"></div>
+    <div class="byline" id="rc-byline" style="display:none"></div>
+    <div id="rc-narr"></div>
+  </section>
+
+  <!-- 互动推演 -->
+  <section>
+    <div class="sec-h"><span class="bar"></span>三、🎯 你来推演：下午会怎么走？</div>
+    <div class="quiz">
+      <div class="qh" id="q-title"></div>
+      <div class="qs" id="q-sub"></div>
+      <div id="q-opts"></div>
+      <div class="reveal" id="rv">
+        <div class="verdict" id="q-verdict"></div>
+        <div class="pm-chart">
+          <div class="ttl" id="q-pmtitle"></div>
+          <svg viewBox="0 0 320 120" id="q-pmsvg"></svg>
+        </div>
+        <div class="ann" id="q-ann"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 分品种详评（折叠展开） -->
+  <section id="inst-sec" style="display:none">
+    <div class="sec-h"><span class="bar"></span>四、分品种详评 <span class="tag">点开看每个品种</span></div>
+    <div id="rc-inst"></div>
+  </section>
+
+  <!-- 历史导流 -->
+  <section>
+    <div class="sec-h"><span class="bar"></span>五、历史上像哪一次？</div>
+    <p class="p-txt" id="h-lead"></p>
+    <div class="relive">
+      <div class="bd" id="h-badge"></div>
+      <h3 id="h-title"></h3>
+      <p id="h-desc"></p>
+      <a class="btn" id="h-btn" href="/">进入「人人复盘」→</a>
+    </div>
+  </section>
+
+  <!-- 底部:二维码 + 分享 -->
+  <div class="foot">
+    <div class="qr-box">
+      <img class="qr-img" src="assets/mp-qr.png?v=20260628a" alt="小程序码">
+      <span class="t">微信扫码 · 进「人人复盘」小程序</span>
+    </div>
+    <button class="share-b" onclick="doShare()">把今天的复盘分享出去 <span style="font-size:17px;vertical-align:-1px">↗</span></button>
+    <p class="disc" id="rc-disc"></p>
+  </div>
+
+</div>
+
+<!-- 分享海报弹窗 -->
+<div id="poster-modal" class="pm-mask" onclick="closePoster()">
+  <div class="pm-box" onclick="event.stopPropagation()">
+    <img id="poster-img" class="pm-img" alt="每日复盘海报">
+    <div class="pm-tip">长按图片 → 保存 / 转发到群或朋友圈</div>
+    <button class="pm-close" onclick="closePoster()">关闭</button>
+  </div>
+</div>
+
+<script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+<script>
+/* 每日复盘 · 渲染器
+ * 数据来自同目录 recap-data.json（由 tools/gen_daily_recap.py 收盘后自动生成）。
+ * 抓取失败 / file:// 直开 → 回退到下方内嵌快照 FALLBACK，页面永不空白。 */
+
+/* ===== 内嵌兜底快照（最近一次真实生成；线上以 recap-data.json 为准） ===== */
+var FALLBACK = {"date":"2026-06-29","date_label":"2026年6月29日 · 周一 · 收盘","generated_at":"2026-06-29 05:08","demo":false,"tone_html":"今日主线：<b>宽松预期主导——股债双牛，流动性驱动风险偏好回升。</b>","logic_tags":[{"t":"经济增长","on":true},{"t":"衰退预期","on":false},{"t":"通胀","on":false},{"t":"降息预期","on":true},{"t":"加息预期","on":false}],"assets":[{"name":"沪深300（股）","chg":"+1.2%","chg_dir":"up","series":[4866.04,4862.25,4881.94,4879.14,4876.04,4885.21,4870.97,4836.55,4853.05,4871.17,4870.45,4835.25,4847.47,4868.02,4871.65,4886.08,4881.67,4889.86,4883.97,4866.13,4864.43,4852.35,4848.52,4853.02,4867.65,4867.06,4875.57,4890.48,4898.45,4917.69,4903.6,4895.08,4892.42,4895.74,4887.15,4904.4,4914.24,4916.24,4927.36,4926.92],"line":"up","sig":"↗ 风险偏好回升"},{"name":"10年国债（债）","chg":"收益↓","chg_dir":"up","series":[109.32,109.3,109.355,109.345,109.335,109.34,109.335,109.315,109.32,109.325,109.31,109.32,109.325,109.32,109.31,109.29,109.275,109.285,109.27,109.315,109.315,109.315,109.32,109.31,109.31,109.31,109.32,109.32,109.33,109.32,109.31,109.315,109.305,109.315,109.305,109.325,109.325,109.325,109.33,109.335],"line":"up","sig":"↗ 资金涌入避险"},{"name":"农产品·生猪（商）","chg":"+4.0%","chg_dir":"up","series":[12100.0,12100.0,12105.0,12150.0,12245.0,12270.0,12265.0,12275.0,12250.0,12210.0,12235.0,12240.0,12265.0,12280.0,12320.0,12310.0,12285.0,12290.0,12290.0,12310.0,12295.0,12310.0,12310.0,12340.0,12360.0,12395.0,12385.0,12420.0,12430.0,12410.0,12390.0,12420.0,12400.0,12390.0,12390.0,12375.0,12380.0,12400.0,12400.0,12400.0],"line":"up","sig":"↗ 厄尔尼诺·农产品领涨"},{"name":"美元/离岸人民币（汇）","chg":"6.80","chg_dir":"flat","series":[6.8045,6.8012,6.8003,6.7962],"line":"flat","sig":"→ 人民币走升"}],"narrative":["四类资产今天：股涨、债涨（收益↓）、商平、汇升——指向 <b>宽松 + 风险偏好回升</b>。","单看股票容易当成普通波动，但<b>债商汇同时印证</b>，说明市场交易的不是个股情绪，而是<b>一个宏观层面的判断</b>。这就是多资产复盘的价值：一类资产是噪音，四类共振才是信号。"],"quiz":{"title":"按「宽松 + 风险偏好回升」这个逻辑，下午该如何演绎？","sub":"上午归纳出逻辑，用下午行情验证它——押一个，看你读得准不准（这不是预测，是检验逻辑站不站得稳）。","options":[{"k":"A","text":"逻辑延续：沿上午方向继续走，主线加深"},{"k":"B","text":"逻辑反转：盘中传闻/数据反向，主线被打脸"},{"k":"C","text":"逻辑分化：股指止跌企稳、债市走平，主线降温"}],"answer":"A","verdict":"✅ 下午验证：A 兑现——「宽松 + 风险偏好回升」在午后强化，逻辑站得稳。","verdict_cls":"stand","pm_title":"下午沪深300（蓝）vs 10年国债期货（金）","pm_stock":[4859.05,4860.13,4852.35,4845.74,4854.04,4853.02,4866.79,4868.63,4867.06,4870.95,4879.61,4890.48,4889.79,4903.42,4917.69,4914.73,4894.77,4895.08,4887.04,4895.69,4895.74,4889.05,4898.21,4904.4,4913.46,4909.48,4916.24,4923.77,4927.0,4926.92],"pm_bond":[109.295,109.325,109.32,109.315,109.32,109.32,109.315,109.3,109.31,109.31,109.325,109.32,109.32,109.33,109.335,109.325,109.31,109.315,109.3,109.31,109.31,109.32,109.305,109.325,109.33,109.325,109.33,109.33,109.335,109.335],"annotation":"下午行情沿上午方向继续演绎，<b>「宽松 + 风险偏好回升」被盘面兑现</b>——上午的判断经住了下午的考验。这就是「归纳→推演→验证」闭环，不是尾盘马后炮。"},"history":{"lead":"「股债双牛、流动性宽松」的格局，历史上最像 <b>2007 年 A 股大牛市</b>——钱多到无处可去，把估值一路推高。","badge":"▶ 不只是看，亲历一次","title":"回到 2007 大牛市，你下得了车吗？","desc":"用 1 万本金，在全民炒股的狂热里，亲手做一次多空抉择。","btn":"进入「人人复盘」· A股 2007 →","case":"ashare2007"},"source":"数据来源：东方财富 / 新浪财经 / 中债（akshare 自动采集，仅客观梳理，不构成投资建议）","commentary":{"byline":"✍ AI 起草 · 人工勘定","tone_html":"今日主线：<b>科技跳水、指数深V翻红，农产品集体异动；这不是避险，是资金从拥挤转向确定性。</b>","plain":"今天大盘\"先跌后涨\"——上午一度跳水，下午全拉了回来、还收红，这就是<b>深 V</b>。但涨的不是早上跌的那批：高高在上的科技股被卖，便宜又分红的<b>银行/红利、券商、消费</b>被买，这叫<b>高低切</b>（钱从\"贵的\"换到\"便宜又有底的\"）。同时<b>农产品</b>（猪肉、棉花、鸡蛋）因天气（厄尔尼诺）大涨。债市、汇市都很稳——所以今天<b>不是\"出事了大家逃命\"，而是\"钱在市场内部换了个方向\"</b>。","asset_sigs":{"股":"↗ 午后深V翻红","债":"→ 基本持平·非避险","商":"↗ 农产品集体领涨","汇":"↗ 人民币小幅走升"},"paragraphs":["今日上证综指平开后一度下探至 3992.55（-0.86%），尾盘收于 4073.90（<b>+1.16%</b>），逼近全天最高，沪市成交约 1.67 万亿；沪深300 收涨 <b>1.21%</b>，创业板指早盘最深杀至 <b>-2.16%</b>、午后照样翻红收涨 0.54%。指数画出一道<b>深 V</b>，底下却是冰火两重天：早盘算力、光模块、半导体等高位科技集体跳水，两市跌停一度约 60 家；与此同时红利、高股息权重与盘中涨超 7% 的券商逆势拉升，午后食品饮料、商业零售、文旅等大消费接力走强，把指数从坑里抬了回来。","只看股票是一场过山车；把股、债、商、汇放在一起读，信号才浮现。10 年期国债收益率窄幅波动、基本持平（国债期货微幅收涨、收益率小幅下行不到 1bp），并未出现避险式大涨；离岸人民币小幅走升；而商品不弱反强——受<b>新一轮厄尔尼诺预警与联合国粮农组织供给警告</b>推动，农产品集体异动，生猪涨逾 4%、棉花涨超 2%、鸡蛋与红枣涨约 2%，有色铜亦涨 1.6%。<b>债平、汇升、商品因供给与轮动逻辑走强，没有一个角落出现系统性避险的特征</b>——今天是权益内部的高低切，而非资金夺路出逃。","这场腾挪的本质是风格再平衡。当流动性宽松预期边际降温（跨半年时点资金面偏紧、DR007 上行），定价锚便从\"想象空间\"（高估值科技）滑向\"盈利可验证＋现金回报\"（股息率已达 5%~6% 的红利与暑期回暖的消费）。把视角拉到全市场会发现是同一种选择：无论是股市里资金从拥挤的高估值科技流向红利与消费，还是商品里轮涨到有供给故事（厄尔尼诺、收储、养殖周期）的农产品，本质都是<b>离开拥挤的想象，转向有基本面、有现金流或有涨价逻辑支撑的确定性</b>。指数的\"韧性\"，是这场再分配的结果，而非仓位的总撤退。"],"history_lead":"每当一类高估值成长抱团拥挤到极致、估值透支了远期想象，一旦流动性预期或盈利兑现的天平稍有倾斜，抱团便容易松动，资金随之向低估值、高分红的价值与红利、以及有供给故事的实物资产回流，完成一轮再平衡。这种\"抱团瓦解、高低切\"在过往多轮周期中反复上演，是市场内部新陈代谢的常态而非异象——把今天的剧烈分化看作<b>结构层面的轮动</b>，而非方向层面的定论，更接近事实。","poster_points":["<b>A股深V</b>：上证盘中 -0.86% → 收 +1.16%，创业板早盘 -2.16% 午后翻红","<b>高低切</b>：算力/半导体杀跌、跌停约 60 家；红利＋券商(+7%)＋大消费接力","<b>农产品暴动</b>：生猪 +4%、棉花 +2.3%、鸡蛋 +2.2%（厄尔尼诺＋FAO 供给警告）","<b>跨资产定论</b>：债平·汇升·商品反强 → 不是避险，是从拥挤转向确定性"],"poster_tags":["高低切","风格再平衡","农产品异动","非系统性避险"],"instruments":[{"title":"权益 · A股指数 +1.16%（深V翻红）","chg_dir":"up","paras":["上证综指平开（4026.69，前收 4027.26）后上午跳水，盘中最低探至 <b>3992.55（-0.86%）</b>，午后强势反弹，收于 <b>4073.90（+1.16%）</b>，逼近全天最高 4075.33，沪市成交约 <b>1.67 万亿</b>。沪深300 收涨 <b>1.21%</b>（4926.92），离全天高仅 1.68 点；创业板指早盘最深杀至 <b>-2.16%</b>、午后照样翻红收涨 0.54%。一道标准的\"平开→探底→深V翻红、收在全天高位\"，量能温和放大，指数层面的韧性十足。"]},{"title":"权益 · 板块结构（高低切）","chg_dir":"flat","paras":["指数的平静掩盖了底下剧烈的高低切：早盘<b>算力、光模块、半导体、通信设备</b>等高位科技成长集体跳水，板块龙头盘中一度 -7%~-9%，两市跌停一度约 60 家；与此同时<b>红利/高股息权重</b>（部分家电、食饮、银行保险、煤炭股息率已达 5%~6%）与<b>券商</b>（盘中涨超 7%）逆势拉升，午后<b>食品饮料、商业零售、文旅</b>等大消费接力（暑期消费升温），把指数从坑里抬了回来。资金不是离场，是从拥挤的高估值赛道换到有股息、有业绩支撑的方向。"]},{"title":"商品 · 农产品 +4%领涨（今日主角·暴动）","chg_dir":"up","paras":["今日最强主线在农产品：<b>生猪 +4.02%、棉花 +2.32%、鸡蛋 +2.24%、红枣 +1.78%、白糖 +0.98%</b>，油脂温和跟涨（菜油 +0.89%、棕榈 +0.69%、豆油 +0.33%），仅豆粕/菜粕小幅回落。催化是<b>新一轮厄尔尼诺预警＋联合国粮农组织（FAO）供给警告</b>，现货涨价情绪升温，农业相关 ETF 同步走强。从大宗\"贵金属→有色→能化→农产品\"的轮涨次序看，资金正轮动到此前滞涨、且有供给故事的农产品板块。"]},{"title":"商品 · 工业品（有色强 / 黑色平 / 能源弱）","chg_dir":"flat","paras":["工业品内部分化：<b>有色铜 +1.58%、黄金 +0.61%</b> 走强；黑色（<b>螺纹 +0.06% 基本持平</b>、铁矿 -0.27%）与<b>原油 -0.62%</b> 偏弱。值得注意的是——避险情形下应是黄金大涨、工业品普跌，而今天恰恰相反（铜涨、农产品涨、金价只小涨），这从商品侧再次印证：今天驱动盘面的是供给与再通胀/轮动逻辑，而非避险。"]},{"title":"固收 · 10年期国债（基本持平）","chg_dir":"flat","paras":["10 年期国债收益率约 <b>1.73%</b>，全天窄幅波动、基本持平（国债期货 T 主连微幅收涨、收益率小幅下行不到 1bp），并未出现避险式大涨。跨半年时点资金面偏紧（DR007 上行）。债市的平静是关键反证：若是系统性风险事件，国债会被避险买盘推得大涨——今天没有，说明这是权益内部腾挪，而非宏观层面的risk-off。"]},{"title":"外汇 · 离岸人民币（小幅走升）","chg_dir":"flat","paras":["离岸人民币（USDCNH）升至约 <b>6.80</b>，小幅走强。汇率偏强意味着外资环境平稳、风险偏好未恶化，与\"今天不是系统性避险\"的判断一致；若是恐慌出逃，人民币通常承压走贬。"]}]}};
+
+var D = FALLBACK;   // 渲染时被真实数据替换；pick()/doShare() 读它
+
+/* series → SVG polyline points；flat 线居中，避免贴底 */
+function spark(s, w, h, pad){
+  pad = pad || 6;
+  if (!s || s.length < 2) return '';
+  var mn = Math.min.apply(null, s), mx = Math.max.apply(null, s), rng = mx - mn, n = s.length;
+  return s.map(function (v, i){
+    var x = (i / (n - 1)) * w;
+    var y = rng ? pad + (1 - (v - mn) / rng) * (h - 2 * pad) : h / 2;
+    return x.toFixed(1) + ',' + y.toFixed(1);
+  }).join(' ');
+}
+function lineColor(dir){ return dir === 'up' ? '#ef5350' : dir === 'down' ? '#26a69a' : '#f0c040'; }
+
+function render(data){
+  D = data;
+  var cm = D.commentary || {};   // 点评层：有则覆盖模板话术
+  // 顶部
+  document.getElementById('rc-date').textContent = D.date_label || '';
+  document.getElementById('rc-tone').innerHTML = cm.tone_html || D.tone_html || '';
+  var pl = document.getElementById('rc-plain');
+  if (cm.plain){ pl.innerHTML = cm.plain; pl.style.display = ''; } else { pl.style.display = 'none'; }
+  var demo = document.getElementById('rc-demo');
+  demo.style.display = D.demo ? 'inline-block' : 'none';
+
+  // 一、多资产速览（签注可被点评层 asset_sigs 覆盖，避免规则模板与主线打架）
+  var sg = cm.asset_sigs || {};
+  document.getElementById('rc-assets').innerHTML = (D.assets || []).map(function (a){
+    var sig = a.sig;
+    for (var k in sg){ if (a.name.indexOf(k) >= 0){ sig = sg[k]; break; } }
+    return '<div class="as"><div class="nm"><span>' + a.name + '</span>' +
+      '<span class="pc ' + (a.chg_dir || 'flat') + '">' + a.chg + '</span></div>' +
+      '<svg viewBox="0 0 120 38"><polyline fill="none" stroke="' + lineColor(a.line) +
+      '" stroke-width="2" points="' + spark(a.series, 120, 38, 6) + '"/></svg>' +
+      '<div class="sig">' + sig + '</div></div>';
+  }).join('');
+
+  // 二、逻辑标签 + 归纳（点评有 poster_tags 用之，与主线一致；否则回退规则模板）
+  var chips = (cm.poster_tags && cm.poster_tags.length)
+    ? cm.poster_tags.map(function (t){ return { t: t, on: true }; })
+    : (D.logic_tags || []);
+  document.getElementById('rc-tags').innerHTML = chips.map(function (t){
+    return '<span class="ml' + (t.on ? ' on' : '') + '">' + t.t + '</span>';
+  }).join('');
+  var byl = document.getElementById('rc-byline'); if (byl) byl.style.display = 'none';   // 署名不对外暴露
+  var paras = (cm.paragraphs && cm.paragraphs.length) ? cm.paragraphs : (D.narrative || []);
+  document.getElementById('rc-narr').innerHTML = paras.map(function (p){
+    return '<p class="p-txt">' + p + '</p>';
+  }).join('');
+
+  // 三、互动推演
+  var q = D.quiz || {};
+  document.getElementById('q-title').textContent = q.title || '';
+  document.getElementById('q-sub').textContent = q.sub || '';
+  document.getElementById('q-opts').innerHTML = (q.options || []).map(function (o){
+    return '<button class="opt" data-k="' + o.k + '" onclick="pick(this)">' +
+      '<span class="lead">' + o.k + '</span>' + o.text + '<span class="mk"></span></button>';
+  }).join('');
+
+  // 四、分品种详评（折叠展开；无数据则隐藏整段）
+  var insts = cm.instruments || [];
+  var instSec = document.getElementById('inst-sec');
+  if (insts.length){
+    instSec.style.display = '';
+    document.getElementById('rc-inst').innerHTML = insts.map(function (it){
+      var body = (it.paras || []).map(function (p){ return '<p>' + p + '</p>'; }).join('');
+      return '<details class="inst-item"><summary><span class="it-t ' + (it.chg_dir || 'flat') + '">' +
+        it.title + '</span></summary><div class="inst-body">' + body + '</div></details>';
+    }).join('');
+  } else { instSec.style.display = 'none'; }
+
+  // 五、历史导流
+  var h = D.history || {};
+  document.getElementById('h-lead').innerHTML = cm.history_lead || h.lead || '';
+  document.getElementById('h-badge').textContent = h.badge || '';
+  document.getElementById('h-title').textContent = h.title || '';
+  document.getElementById('h-desc').textContent = h.desc || '';
+  var hb = document.getElementById('h-btn');
+  hb.textContent = h.btn || '进入「人人复盘」→';
+  hb.href = 'javascript:void(0)';
+  hb.onclick = function () { goCase(h.case); return false; };
+
+  // 底部免责 + 数据源
+  document.getElementById('rc-disc').innerHTML = (D.source ? D.source + '<br>' : '') +
+    '本内容为市场公开信息的客观梳理与投资者教育，仅供参考，<b>不构成任何投资建议</b>，不推荐任何具体证券，据此操作风险自担。';
+}
+
+/* 选项点击：揭晓答案 + 画下午分时 */
+function pick(el){
+  var q = D.quiz || {}, picked = el.getAttribute('data-k'), ANSWER = q.answer || 'A';
+  document.querySelectorAll('.opt').forEach(function (o){
+    o.onclick = null;
+    var k = o.getAttribute('data-k');
+    if (k === ANSWER){ o.classList.add('right'); o.querySelector('.mk').textContent = '✓ 兑现'; }
+    else if (k === picked){ o.classList.add('wrong'); o.querySelector('.mk').textContent = '✗ 未现'; }
+  });
+  el.classList.add('picked');
+
+  var v = document.getElementById('q-verdict');
+  v.className = 'verdict ' + (q.verdict_cls || 'stand');
+  v.textContent = q.verdict || '';
+  document.getElementById('q-pmtitle').textContent = (q.pm_title || '') + ' · 14:00 后看分化';
+  // 下午双线：股蓝 / 债金，各自归一化
+  var svg = '<line x1="160" y1="8" x2="160" y2="112" stroke="rgba(255,255,255,.12)" stroke-dasharray="3 3"/>' +
+    '<text x="164" y="18" fill="#5a626d" font-size="10">14:00</text>';
+  if (q.pm_stock && q.pm_stock.length) svg += '<polyline fill="none" stroke="#37a0dd" stroke-width="2.4" points="' + spark(q.pm_stock, 320, 120, 12) + '"/>';
+  if (q.pm_bond && q.pm_bond.length) svg += '<polyline fill="none" stroke="#f0c040" stroke-width="2.4" points="' + spark(q.pm_bond, 320, 120, 12) + '"/>';
+  document.getElementById('q-pmsvg').innerHTML = svg;
+  document.getElementById('q-ann').innerHTML = q.annotation || '';
+
+  var rv = document.getElementById('rv');
+  rv.classList.add('show');
+  rv.scrollIntoView({ behavior:'smooth', block:'center' });
+}
+
+/* ===== 分享：现画一张转发海报（canvas→图片），弹窗长按保存/转发，微信里也能用 ===== */
+function _strip(s){ return (s || '').replace(/<[^>]+>/g, ''); }
+function _rr(c, x, y, w, h, r){ c.beginPath(); c.moveTo(x+r,y); c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r); c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath(); }
+function _wrap(c, t, maxW){ var lines=[], cur=''; for (var i=0;i<t.length;i++){ var ch=t.charAt(i); if (ch==='\n'){ lines.push(cur); cur=''; continue; } var test=cur+ch; if (c.measureText(test).width>maxW && cur){ lines.push(cur); cur=ch; } else cur=test; } if (cur||lines.length===0) lines.push(cur); return lines; }
+function _loadImg(src){ return new Promise(function(res){ var im=new Image(); im.onload=function(){ res(im); }; im.onerror=function(){ res(null); }; im.src=src; }); }
+function _spark(c, s, x, y, w, h, color){ if (!s || s.length<2) return; var mn=Math.min.apply(null,s), mx=Math.max.apply(null,s), rng=mx-mn; c.strokeStyle=color; c.lineWidth=2.2; c.lineJoin='round'; c.beginPath(); for (var i=0;i<s.length;i++){ var px=x+(i/(s.length-1))*w, py=rng? y+(1-(s[i]-mn)/rng)*h : y+h/2; if (i) c.lineTo(px,py); else c.moveTo(px,py); } c.stroke(); }
+
+function makePoster(cb){
+  _loadImg('assets/mp-qr.png?v=20260628a').then(function(qrImg){
+    var FONT='"PingFang SC","Microsoft YaHei",sans-serif', W=680, pad=46, DPR=3;
+    var cm=D.commentary||{};
+    var tone=_strip(cm.tone_html||D.tone_html||'').replace('今日主线：','');
+    var plain=_strip(cm.plain||'');   // 说人话（通俗版）——海报主打
+    var assets=D.assets||[];
+    // 核心要点：优先 poster_points；否则正文首句兜底。务必 _strip 去掉 <b> 标签（否则标签字面画到图上）
+    var rawPts=(cm.poster_points&&cm.poster_points.length)?cm.poster_points.slice(0,4)
+      :(cm.paragraphs||D.narrative||[]).slice(0,4).map(function(p){
+          var t=_strip(p).replace(/^[「"]+/,''); var dot=t.search(/[。；]/); if (dot>12) t=t.slice(0,dot); return t; });
+    // 拆 {label, body}：「：」前为金色小标，其后为正文
+    var pts=rawPts.map(function(p){ p=_strip(p); var i=p.search(/[:：]/);
+      return (i>0)?{label:p.slice(0,i), body:p.slice(i+1).replace(/^\s+/,'')}:{label:'', body:p}; });
+    var onTags=(cm.poster_tags&&cm.poster_tags.length)?cm.poster_tags.slice(0,5)
+      :(D.logic_tags||[]).filter(function(t){return t.on;}).map(function(t){return t.t;});
+
+    // —— 预测量高度 ——
+    var mc=document.createElement('canvas').getContext('2d');
+    mc.font='600 29px '+FONT; var toneLines=_wrap(mc, tone, W-2*pad-36);
+    mc.font='23px '+FONT; var plainLines=plain?_wrap(mc, plain, W-2*pad-36):[];
+    var ptW=W-2*pad-40;
+    var ptBlocks=pts.map(function(p){ mc.font='23px '+FONT; return {label:p.label, lines:_wrap(mc, p.body, ptW)}; });
+
+    var headH=164, labelH=46, cellH=98;
+    var toneH=18+toneLines.length*42+18;
+    var plainH=plain?(58+plainLines.length*34+14):0;   // 含 badge + 行 + 间距
+    var assetsH=Math.ceil(assets.length/2)*(cellH+12);
+    var chipsH=onTags.length?44:0;
+    var pointsH=ptBlocks.reduce(function(s,b){return s+(b.label?36:0)+b.lines.length*34+20;},0);
+    var logicH=labelH+chipsH+pointsH+4;
+    var qw=184, qh=qrImg?Math.round(qw*qrImg.height/qrImg.width):206;
+    var H=headH+toneH+plainH+labelH+assetsH+labelH+chipsH+pointsH+4+28+qh+56;
+
+    var cv=document.createElement('canvas'); cv.width=W*DPR; cv.height=H*DPR; var c=cv.getContext('2d'); c.scale(DPR,DPR);
+    c.textBaseline='alphabetic';
+    var g=c.createLinearGradient(0,0,0,H); g.addColorStop(0,'#1c1408'); g.addColorStop(.14,'#0b0e14'); g.addColorStop(1,'#0b0e14'); c.fillStyle=g; c.fillRect(0,0,W,H);
+    // 头部
+    c.textAlign='center';
+    c.fillStyle='#f0c040'; c.font='600 22px '+FONT; c.fillText('人 人 复 盘 · 每 日 复 盘', W/2, 52);
+    c.fillStyle='#f6d98a'; c.font='700 44px '+FONT; c.fillText('每日复盘', W/2, 108);
+    c.fillStyle='#8b949e'; c.font='21px '+FONT; c.fillText(D.date_label||'', W/2, 144);
+    var y=headH;
+    // 主线
+    c.fillStyle='rgba(240,192,64,.09)'; _rr(c,pad,y,W-2*pad,toneH-8,14); c.fill();
+    c.fillStyle='#f0c040'; c.fillRect(pad,y,4,toneH-8);
+    c.textAlign='left'; c.fillStyle='#f0c040'; c.font='600 29px '+FONT;
+    toneLines.forEach(function(l,i){ c.fillText(l, pad+26, y+46+i*42); });
+    y+=toneH;
+    // 说人话（通俗版，青色框）——海报主打的"看得懂"层
+    if (plain){
+      var bh=plainH-14;
+      c.fillStyle='rgba(38,166,154,.10)'; _rr(c,pad,y,W-2*pad,bh,14); c.fill();
+      c.strokeStyle='rgba(95,208,196,.42)'; c.lineWidth=1.2; _rr(c,pad,y,W-2*pad,bh,14); c.stroke();
+      c.textAlign='left'; c.fillStyle='#5fd0c4'; c.font='700 19px '+FONT; c.fillText('💡 说人话', pad+20, y+34);
+      c.fillStyle='#e6edf3'; c.font='23px '+FONT;
+      plainLines.forEach(function(l,i){ c.fillText(l, pad+20, y+68+i*34); });
+      y+=plainH;
+    }
+    // 多资产速览
+    c.textAlign='left'; c.fillStyle='#8b949e'; c.font='600 20px '+FONT; c.fillText('多资产速览', pad, y+26); y+=labelH;
+    var colW=(W-2*pad-16)/2;
+    for (var i=0;i<assets.length;i++){ var a=assets[i], cx=pad+(i%2)*(colW+16), cy=y+Math.floor(i/2)*(cellH+12);
+      c.fillStyle='#121620'; _rr(c,cx,cy,colW,cellH,12); c.fill();
+      c.textAlign='left'; c.fillStyle='#8b949e'; c.font='18px '+FONT; c.fillText(a.name, cx+16, cy+28);
+      var col=a.chg_dir==='up'?'#ef5350':a.chg_dir==='down'?'#26a69a':'#f0c040';
+      c.fillStyle=col; c.font='700 31px '+FONT; c.fillText(a.chg, cx+16, cy+70);
+      _spark(c, a.series, cx+colW-110, cy+36, 94, 42, col);
+    }
+    y+=assetsH;
+    // 核心观点
+    c.textAlign='left'; c.fillStyle='#8b949e'; c.font='600 20px '+FONT; c.fillText('盘面逻辑 · 核心观点', pad, y+26); y+=labelH;
+    if (onTags.length){ var chx=pad; c.font='600 18px '+FONT;
+      onTags.forEach(function(t){ var tw=c.measureText(t).width+28;
+        c.fillStyle='rgba(240,192,64,.14)'; _rr(c,chx,y,tw,30,15); c.fill();
+        c.fillStyle='#f0c040'; c.textAlign='left'; c.fillText(t, chx+14, y+21); chx+=tw+10; });
+      y+=chipsH;
+    }
+    ptBlocks.forEach(function(b,idx){
+      c.textAlign='left';
+      c.fillStyle='#f0c040'; c.font='700 23px '+FONT; c.fillText((idx+1)+'', pad, y+23);
+      var yy=y;
+      if (b.label){ c.fillStyle='#f0c040'; c.font='700 24px '+FONT; c.fillText(b.label, pad+34, yy+23); yy+=36; }
+      c.fillStyle='#d6dde6'; c.font='23px '+FONT;
+      b.lines.forEach(function(l,i){ c.fillText(l, pad+34, yy+23+i*34); });
+      y+=(b.label?36:0)+b.lines.length*34+20;
+    });
+    y+=14;
+    // 二维码 + 引导
+    if (qrImg){ c.drawImage(qrImg, pad, y, qw, qh);
+      c.textAlign='left'; c.fillStyle='#e6edf3'; c.font='600 27px '+FONT; c.fillText('微信扫码 · 看完整复盘', pad+qw+22, y+52);
+      c.fillStyle='#8b949e'; c.font='20px '+FONT;
+      ['分品种详评 · 历史对照 · 互动推演','每天收盘后更新'].forEach(function(l,i){ c.fillText(l, pad+qw+22, y+90+i*32); });
+    }
+    c.textAlign='center'; c.fillStyle='#5a626d'; c.font='16px '+FONT; c.fillText('投资者教育 · 客观梳理 · 不构成投资建议', W/2, H-24);
+    cb(cv.toDataURL('image/png'));
+  });
+}
+function doShare(){
+  try{ makePoster(function(dataUrl){ if (dataUrl){ document.getElementById('poster-img').src=dataUrl; document.getElementById('poster-modal').classList.add('show'); } }); }
+  catch(e){ var u=location.href.split('?')[0]; try{ navigator.clipboard.writeText(u); }catch(_){} alert('链接已复制 ✓'); }
+}
+function closePoster(){ document.getElementById('poster-modal').classList.remove('show'); }
+
+/* ===== 日期列表导航：进入先看日期列表，点某天才进当天复盘 ===== */
+function showList(){ document.getElementById('list-view').style.display=''; document.getElementById('detail-view').style.display='none'; window.scrollTo(0,0); }
+function showDetail(){ document.getElementById('list-view').style.display='none'; document.getElementById('detail-view').style.display=''; window.scrollTo(0,0); }
+var TYPE_LABEL = { day:'日报', week:'周报', month:'月报' };
+function renderList(list){
+  list = list || [];
+  if (!list.length){ document.getElementById('dl-rows').innerHTML = '<div class="dl-empty">暂无复盘，收盘后更新</div>'; return; }
+  // 节奏说明（不放空占位卡——周报/月报有真实内容时才进 list 显示）
+  var html = '<div class="tl-cad">📈 复盘随交易日累积：<b style="color:#d6dde6">每日一篇</b>，每周五汇成「周报」、月末汇成「月报」。</div>';
+  html += list.map(function(it){
+    var ty = it.type || 'day';
+    return '<div class="tl-row" onclick="openDate(\'' + it.date + '\')">' +
+      '<span class="tl-badge ' + ty + '">' + (TYPE_LABEL[ty] || '日报') + '</span>' +
+      '<div class="tl-date">' + (it.date_label || it.date) + '</div>' +
+      '<div class="tl-tone">' + (it.tone || '') + '</div>' +
+      '<div class="tl-go">看复盘 →</div></div>';
+  }).join('');
+  document.getElementById('dl-rows').innerHTML = html;
+}
+function loadDate(date){
+  showDetail();
+  fetch('recap-archive/' + date + '.json?v=' + Date.now())
+    .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+    .then(render)
+    .catch(function(){ fetch('recap-data.json?v=' + Date.now()).then(function(r){ return r.json(); }).then(render).catch(function(){ render(FALLBACK); }); });
+}
+function openDate(date){ try{ history.pushState({date:date}, '', '?date=' + date); }catch(e){} loadDate(date); }
+function backToList(){ try{ history.pushState({}, '', location.pathname); }catch(e){} showList(); }
+// 小程序内：返回大厅=navigateBack；进推荐剧本=navigateTo play 页(开盘/研究)。浏览器内：走网页版链接。
+function inMini(){ try { return window.__wxjs_environment === 'miniprogram' || /miniProgram/i.test(navigator.userAgent); } catch(e){ return false; } }
+function goLobby(){ if (inMini() && window.wx && wx.miniProgram) { wx.miniProgram.navigateBack({ delta: 1 }); } else { location.href = '/'; } }
+function goCase(cs){ if (inMini() && window.wx && wx.miniProgram) { wx.miniProgram.navigateTo({ url: '/pages/play/play' + (cs ? ('?id=' + cs) : '') }); } else { location.href = cs ? ('/?case=' + cs) : '/'; } }
+function _qdate(){ var m = location.search.match(/[?&]date=([0-9-]+)/); return m ? m[1] : ''; }
+window.addEventListener('popstate', function(){ var d=_qdate(); if(d) loadDate(d); else showList(); });
+
+(function boot(){
+  var d = _qdate();
+  fetch('recap-list.json?v=' + Date.now())
+    .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+    .then(function(list){ renderList(list); if(d) loadDate(d); else showList(); })
+    .catch(function(){ /* 离线/file:// 无清单 → 直接显示内嵌当天详情 */
+      showDetail(); render(FALLBACK);
+      fetch('recap-data.json?v=' + Date.now()).then(function(r){ return r.json(); }).then(render).catch(function(){});
+    });
+})();
+</script>
+</body>
+</html>

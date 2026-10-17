@@ -1,0 +1,316 @@
+{
+"cases": [
+{
+"id": "buffett_1964_axp",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 164
+},
+{
+"id": "buffett_1974_bear_market",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 121
+},
+{
+"id": "buffett_1976_geico",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 178
+},
+{
+"id": "buffett_1989_usair",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 175
+},
+{
+"id": "buffett_1990_wfc",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 174
+},
+{
+"id": "buffett_1998_ko_overvaluation",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 210
+},
+{
+"id": "buffett_2003_ptr",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 172
+},
+{
+"id": "buffett_2008_gs",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 157
+},
+{
+"id": "buffett_2011_bac",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 177
+},
+{
+"id": "buffett_2011_ibm",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 165
+},
+{
+"id": "buffett_2016_aapl",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 158
+},
+{
+"id": "buffett_2016_dal",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 164
+},
+{
+"id": "buffett_2020_mc",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 171
+},
+{
+"id": "buffett_2020_oxy",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 160
+},
+{
+"id": "buffett_2022_oxy_energy",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 121
+},
+{
+"id": "burry_2019_gme",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 101
+},
+{
+"id": "burry_2021_tsla_short",
+"kind": "futures",
+"kindLabel": "期货",
+"n": 129
+},
+{
+"id": "cn_a2015",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 264
+},
+{
+"id": "cn_asia1997",
+"kind": "futures",
+"kindLabel": "期货",
+"n": 455
+},
+{
+"id": "cn_bigshort2008",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 457
+},
+{
+"id": "cn_byd2008",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 742
+},
+{
+"id": "cn_cotton2010",
+"kind": "futures",
+"kindLabel": "期货",
+"n": 675
+},
+{
+"id": "cn_dalio1987",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 139
+},
+{
+"id": "cn_dj1929",
+"kind": "futures",
+"kindLabel": "期货",
+"n": 663
+},
+{
+"id": "cn_gbp1992",
+"kind": "forex",
+"kindLabel": "外汇",
+"n": 325
+},
+{
+"id": "cn_graham_geico1948",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 178
+},
+{
+"id": "cn_ko1988",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 969
+},
+{
+"id": "cn_maotai2013",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 967
+},
+{
+"id": "cn_nasdaq2000",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 348
+},
+{
+"id": "cn_netease2002",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 871
+},
+{
+"id": "cn_rebar2016",
+"kind": "futures",
+"kindLabel": "期货",
+"n": 545
+},
+{
+"id": "cn_silver1980",
+"kind": "commodity",
+"kindLabel": "商品",
+"n": 520
+},
+{
+"id": "cn_spy2020",
+"kind": "futures",
+"kindLabel": "期货",
+"n": 317
+},
+{
+"id": "cn_wapo1973",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 701
+},
+{
+"id": "cn_wmt1985",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 181
+},
+{
+"id": "dalio_2008_crisis",
+"kind": "futures",
+"kindLabel": "期货",
+"n": 157
+},
+{
+"id": "dalio_2020_covid",
+"kind": "futures",
+"kindLabel": "期货",
+"n": 158
+},
+{
+"id": "druck_2000_tech",
+"kind": "futures",
+"kindLabel": "期货",
+"n": 164
+},
+{
+"id": "druck_2020_snow",
+"kind": "futures",
+"kindLabel": "期货",
+"n": 175
+},
+{
+"id": "druckenmiller_2009_gold_qe",
+"kind": "commodity",
+"kindLabel": "商品（黄金）",
+"n": 117
+},
+{
+"id": "duanyongping_2018_aapl_drawdown",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 127
+},
+{
+"id": "livermore_1907",
+"kind": "futures",
+"kindLabel": "期货",
+"n": 131
+},
+{
+"id": "lynch_1973_hanes",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 168
+},
+{
+"id": "lynch_1980_taco",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 167
+},
+{
+"id": "lynch_1982_chrysler",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 170
+},
+{
+"id": "lynch_1985_fnma",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 175
+},
+{
+"id": "lynch_1987_blackmonday",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 110
+},
+{
+"id": "soros_1985_plaza",
+"kind": "forex",
+"kindLabel": "外汇",
+"n": 153
+},
+{
+"id": "soros_1997_thb",
+"kind": "forex",
+"kindLabel": "外汇",
+"n": 148
+},
+{
+"id": "soros_2013_jpy",
+"kind": "forex",
+"kindLabel": "外汇",
+"n": 153
+},
+{
+"id": "templeton_1939_100stocks",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 175
+},
+{
+"id": "templeton_1999_tech",
+"kind": "stock",
+"kindLabel": "股票",
+"n": 175
+}
+]
+}

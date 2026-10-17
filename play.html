@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>投资历史案例研习 · 投资的时光机</title>
+<meta name="description" content="基于公开史料，通过真实历史行情与当时新闻报道，还原全球资本市场经典时刻。个人投资历史学习笔记，不构成投资建议。">
+<meta property="og:title" content="投资历史案例研习 · 投资的时光机">
+<meta property="og:description" content="还原全球资本市场重大历史时刻，通过互动式案例研习理解投资决策逻辑。个人学习笔记，不构成投资建议。">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/app.css?v=20260627r">
+<script>
+/* 微信 / 手机QQ / 微博 内置浏览器 → 合规教育模式（去分享解锁、去同行排行、去站外收款、强化免责）。
+   ?wx=1 可在任意浏览器手动触发，便于测试。尽早执行：加 class 避免闪烁、置 MR.WECHAT 供各模块读取。 */
+(function () {
+  var ua = navigator.userAgent || '';
+  var wx = /MicroMessenger|\bQQ\/|MQQBrowser|Weibo|WeiBo/i.test(ua) || /[?&]wx=1/.test(location.search);
+  window.MR = window.MR || {};
+  window.MR.WECHAT = wx;
+  if (wx) document.documentElement.classList.add('wechat-mode');
+})();
+</script>
+</head>
+<body>
+<div id="app">
+
+  <!-- ===== 剧本大厅 ===== -->
+  <div id="lobby">
+    <div class="brand">
+      <h1>投资大师实战</h1>
+      <div class="brand-url">MarketBattles.com</div>
+      <div class="sub">经典战役复盘 · 真实行情 · 亲手交易</div>
+    </div>
+    <div class="fav-tip">★ 微信内右上角 ··· 收藏本页</div>
+    <div id="case-list"></div>
+    <div class="lobby-foot">
+      <span class="link" id="lobby-invite">🎁 转发邀请函解锁剧本</span>
+      <span class="link" id="lobby-redeem">🔑 输入兑换码</span>
+    </div>
+  </div>
+
+  <!-- ===== 场景层（时代叙事） ===== -->
+  <div id="scene-layer" class="hidden">
+    <div class="scene-era-bg"></div>
+    <button id="scene-back" class="layer-back" type="button">‹</button>
+    <div id="scene-body"></div>
+    <div id="scene-foot"></div>
+  </div>
+
+  <!-- ===== 交易终端 ===== -->
+  <div id="terminal-layer" class="hidden">
+    <div id="t-hud">
+      <button id="t-back" type="button">‹</button>
+      <div id="t-date" class="num">2015-03-02</div>
+      <div id="t-bpm" class="num">♥ 62</div>
+      <button id="mute-btn" type="button" aria-label="声音"></button>
+      <div id="t-nav-wrap"><span id="t-nav-label">净值</span> <span id="t-nav" class="num">1.0000</span></div>
+    </div>
+    <div id="t-warnline"></div>
+
+    <div id="instr-tabs"></div>
+
+    <div id="chart-wrap">
+      <canvas id="kchart"></canvas>
+      <div id="chart-zoom">
+        <button id="zoom-out" type="button" aria-label="缩小看全局">－</button>
+        <button id="zoom-in" type="button" aria-label="放大看细节">＋</button>
+      </div>
+      <div id="intra-banner">⏱ 关键日 · 分时盯盘中</div>
+    </div>
+
+    <div class="drag-handle" id="dh-chart"><span></span></div>
+
+    <!-- 消息流：打字机模式，紧贴K线成交量下方 -->
+    <div id="msg-strip"><div id="msg-feed"></div></div>
+
+    <div class="drag-handle" id="dh-msg"><span></span></div>
+
+    <div id="play-bar">
+      <button id="btn-play" type="button">▶ 播放</button>
+      <div id="speed-wrap">
+        <button class="speed-btn" data-s="0.5" type="button">0.5×</button>
+        <button class="speed-btn" data-s="1" type="button">1×</button>
+        <button class="speed-btn on" data-s="2" type="button">2×</button>
+        <button class="speed-btn" data-s="4" type="button">4×</button>
+        <button class="speed-btn" data-s="8" type="button">8×</button>
+        <button class="speed-btn" data-s="16" type="button">16×</button>
+        <button class="speed-btn" data-s="32" type="button">32×</button>
+      </div>
+      <button id="btn-hold" type="button" title="长期持有到底">🌱 长持</button>
+    </div>
+
+    <div id="order-panel">
+      <!-- 仓位档：按整体权益的比例（开仓=新增该比例占用；平仓=平掉持仓的该比例） -->
+      <div class="opct">
+        <button class="chip" data-p="1" type="button">1%</button>
+        <button class="chip" data-p="5" type="button">5%</button>
+        <button class="chip" data-p="10" type="button">10%</button>
+        <button class="chip" data-p="15" type="button">15%</button>
+        <button class="chip on" data-p="25" type="button">25%</button>
+        <button class="chip" data-p="50" type="button">50%</button>
+        <button class="chip" data-p="100" type="button">满仓</button>
+      </div>
+      <div class="orow">
+        <button id="btn-buy" class="obtn buy" type="button">买入</button>
+        <button id="btn-close" class="obtn close" type="button">平仓</button>
+        <button id="btn-short" class="obtn sell" type="button">卖空</button>
+      </div>
+      <label id="margin-row" style="display:none"><input type="checkbox" id="margin-check">融资<span class="mr-warn">2×杠杆 · 年息8.5% · 强平线130%</span></label>
+    </div>
+
+    <!-- 持仓 / 研究：交易按钮下方，可切换 -->
+    <div id="b-tabs">
+      <button class="btab on" data-t="pos" type="button">持仓</button>
+      <button class="btab" data-t="research" type="button">研究</button>
+    </div>
+    <div id="b-content">
+      <div id="tab-pos"></div>
+      <div id="tab-research" class="hidden"></div>
+    </div>
+  </div>
+
+  <!-- 研究全屏阅读层 -->
+  <div id="research-full" class="hidden"></div>
+
+  <!-- ===== 终局复盘 ===== -->
+  <div id="recap-layer" class="hidden"></div>
+
+  <div id="vignette"></div>
+  <div id="flash"></div>
+  <div id="toast"></div>
+  <div id="disclaimer">投资史教育体验产品 · 不构成投资建议</div>
+  <button id="theme-fab" type="button" aria-label="切换主题">☀</button>
+</div>
+
+<script src="js/engine.js?v=20260627r"></script>
+<script src="js/chart.js?v=20260627r"></script>
+<script src="js/audio.js?v=20260627r"></script>
+<script src="js/codes.js?v=20260627r"></script>
+<script src="js/growth.js?v=20260627r"></script>
+<script src="js/track.js?v=20260627r"></script>
+<script src="js/ui.js?v=20260627r"></script>
+<script src="js/recap.js?v=20260627r"></script>
+<script src="js/blind.js?v=20260627r"></script>
+<script src="js/main.js?v=20260627r"></script>
+</body>
+</html>
